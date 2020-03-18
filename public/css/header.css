@@ -1,0 +1,65 @@
+html, body {
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+}
+
+.main {
+    display: flex;
+    background-color: rgb(41, 44, 44);
+    padding-left: 30px;
+    padding-right: 30px;
+    height: 80px;
+    line-height: 80px;
+}
+
+
+.list {
+    width: 75%;
+    font-size: 18px;
+    height: 100%;
+    font-weight: 100;
+    text-align: center;
+}
+
+.teste {
+    display: flex;
+    float: right;
+    height: 100%;
+}
+
+.item {
+    height: 100%;
+}
+
+.item a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding-left: 23px;
+    padding-right: 23px;
+    height: 100%;
+}
+
+.item a:hover {
+    background-color: rgb(64, 68, 68);
+}
+
+.logo {
+    width: 25%;
+    height: 100%;
+    float: left;
+}
+
+.logo h1 {
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    width: 50%;
+}
+
+.logo a {
+    text-decoration: none;
+    color: white;
+}
+

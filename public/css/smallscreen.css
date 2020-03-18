@@ -1,0 +1,7 @@
+body {
+    background-color: black;
+}
+
+.main h1, a{
+    font-size: 50%;
+}
