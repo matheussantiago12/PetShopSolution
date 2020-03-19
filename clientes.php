@@ -1,6 +1,6 @@
 <?php include("header.php")?>
 <?php include("clienteController.php")?>
-<script src="public/cliente.js"></script>
+<script src="public/js/cliente.js"></script>
 <div class="testee">
     <div class="body">
         <div class="cabecalho">
@@ -32,9 +32,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php 
-                listarClientes(); 
-                ?>
+                <?php listarClientes(); ?>
             </tbody>
         </table>
 

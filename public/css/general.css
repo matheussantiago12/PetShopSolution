@@ -1,6 +1,7 @@
 body {
     background-color: rgb(252, 252, 252);
     font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(238, 238, 238);
 }
 
 .testee {
@@ -102,8 +103,8 @@ td {
 }
 
 table thead {
-    background-color: rgb(60, 65, 65);
-    color: whitesmoke;
+    background-color: rgb(42, 45, 53);
+    color: rgb(230, 230, 230);
 }
 
 table th:first-child {
@@ -119,11 +120,15 @@ thead tr, td, th {
 }
 
 table tbody tr:nth-child(even) {
-    background: rgb(236, 236, 236);
+    background-color: rgb(240, 240, 241);
 }
 
 table tbody tr:nth-child(odd) {
-    background: rgb(255, 255, 255);
+    background-color: rgb(252, 252, 253);
+}
+
+table tbody tr:hover {
+    background-color: rgba(150, 150, 150, 0.034);
 }
 
 table tbody td {
@@ -357,4 +362,24 @@ label.custom-select {
 
 .cancelar {
     background-color: rgb(184, 72, 72);
+}
+
+.bold {
+    font-weight: bold;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.08);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(194, 194, 194); 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.200); 
 }

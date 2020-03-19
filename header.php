@@ -37,10 +37,30 @@
                 <h1>Pet Shop</h1>
             </div>
         </a>
+        <a href="index.php">
+            <div class="aside-row">
+                <div class="aside-icon">
+                    <i class="fa fa-home"></i>
+                </div>
+                <div class="aside-title">
+                    Home
+                </div>
+            </div>
+        </a>
+        <a href="index.php">
+            <div class="aside-row">
+                <div class="aside-icon">
+                    <i class="fa fa-columns"></i>
+                </div>
+                <div class="aside-title">
+                    Dashboard
+                </div>
+            </div>
+        </a>
         <a href="consultas.php">
             <div class="aside-row">
                 <div class="aside-icon">
-                    C
+                    <i class="fa fa-calendar"></i>
                 </div>
                 <div class="aside-title">
                     Consultas
@@ -50,7 +70,7 @@
         <a href="clientes.php">
             <div class="aside-row">
                 <div class="aside-icon">
-                    C
+                    <i class="fa fa-user"></i>
                 </div>
                 <div class="aside-title">
                     Clientes
@@ -60,7 +80,7 @@
         <a href="veterinarios.php">
             <div class="aside-row">
                 <div class="aside-icon">
-                    V
+                    <i class="fa fa-user-md"></i>
                 </div>
                 <div class="aside-title">
                     Veterinários
@@ -70,17 +90,16 @@
         <a href="pets.php">
             <div class="aside-row">
                 <div class="aside-icon">
-                    P
+                    <i class="fa fa-paw"></i>
                 </div>
                 <div class="aside-title">
                     Pets
                 </div>
             </div>
         </a>
-
-        <a href="pets.php">
+        <a href="#">
             <div class="aside-row last">
-                <
+                <i class="fa fa-angle-left bold"></i>
             </div>
         </a>
         </div>
