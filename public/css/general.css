@@ -17,7 +17,7 @@ body {
 }
 
 .bodyInfo {
-    width: 75%;
+    width: 88%;
     margin-right: auto;
     margin-left: auto;
     padding: 30px;
@@ -382,4 +382,66 @@ label.custom-select {
 
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(0, 0, 0, 0.200); 
+}
+
+.dashboard-card {
+    background-color: white;
+    display: flex;
+    width: 25%;
+    margin: 8px;
+    height: 140px;
+    line-height: 140px;
+}
+
+.card-icon {
+    width: 20%;
+    height: 100%;
+    text-align: center;
+}
+
+.card-icon i {
+    background-color: rgba(0, 0, 0, 0.192);
+    padding: 20%;
+    border-radius: 50px;
+    color: white;
+}
+
+.dashboard-row {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.card-text {
+    width: 80%;
+    overflow: hidden;
+    text-align: center;
+    font-size: 18px;
+    color: rgb(51, 51, 51);
+}
+
+.card-number {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.dashboard {
+    padding: 0px;
+    margin-top: 35px;
+}
+
+.cyan {
+    background-color: rgb(20, 134, 134);
+}
+
+.purple {
+    background-color: rgb(101, 29, 122);
+}
+
+.green {
+    background-color: rgb(41, 116, 39);
+}
+
+.yellow {
+    background-color: rgb(228, 186, 49);
 }

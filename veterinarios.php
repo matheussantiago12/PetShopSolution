@@ -1,6 +1,7 @@
 <?php include("header.php")?>
 <?php include("veterinarioController.php")?>
 <script src="public/js/veterinario.js"></script>
+<div class="testee">
     <div class="body">
         <div class="cabecalho">
             <h1>Veterinários cadastrados</h1>
@@ -34,4 +35,6 @@
             </tbody>
         </table>
     </div>
-
+</div>
+    
+    

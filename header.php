@@ -47,7 +47,7 @@
                 </div>
             </div>
         </a>
-        <a href="index.php">
+        <a href="dashboard.php">
             <div class="aside-row">
                 <div class="aside-icon">
                     <i class="fa fa-columns"></i>

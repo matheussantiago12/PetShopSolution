@@ -8,31 +8,32 @@
     <title>teste</title>
 </head>
 <body>
-    <div class="bodyInfo">
-        <div class="form">
-            <div class="formHeader">
-                <h1>Dados</h1>
-                <a href="javascript:habilitarInputs()">Habilitar edição</a>
-            </div>
-            <div class="row">
-                <div class="label">
-                    <label for="">Nome</label>
+    <div class="testee">  
+        <div class="bodyInfo">
+            <div class="form">
+                <div class="formHeader">
+                    <h1>Dados</h1>
+                    <a href="javascript:habilitarInputs()">Habilitar edição</a>
                 </div>
-                <input type="text" placeholder="Nome" disabled>
-            </div>
-            <div class="row">
-                <div class="label">
-                    <label for="">Animal</label>
+                <div class="row">
+                    <div class="label">
+                        <label for="">Nome</label>
+                    </div>
+                    <input type="text" placeholder="Nome" disabled>
                 </div>
-                <label class="custom-select select-info">
-                    <select disabled>
-                        <option value="1">Selecione...</option>
-                        <option>Cão</option>
-                        <option>Gato</option>
-                    </select>
-                </label>
-            </div>
-            <div class="row">
+                <div class="row">
+                    <div class="label">
+                        <label for="">Animal</label>
+                    </div>
+                    <label class="custom-select select-info">
+                        <select disabled>
+                            <option value="1">Selecione...</option>
+                            <option>Cão</option>
+                            <option>Gato</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="row">
                 <div class="label">
                     <label for="">Raça</label>
                 </div>
@@ -95,5 +96,6 @@
             </div>
         </div>
     </div>
+</div>
 </body>
 </html>
