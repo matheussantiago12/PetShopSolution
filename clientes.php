@@ -1,6 +1,7 @@
 <?php include("header.php")?>
 <?php include("clienteController.php")?>
 <script src="public/cliente.js"></script>
+<div class="testee">
     <div class="body">
         <div class="cabecalho">
             <h1>Clientes cadastrados</h1>
@@ -47,4 +48,5 @@
         <a href="#modalExcluir" rel="modal:open"></a>
 
     </div>
+</div>
 

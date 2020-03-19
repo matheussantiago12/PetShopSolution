@@ -5,9 +5,8 @@ if(isset($_POST['create'])) {
     $idveterinario = $_POST['idveterinario'];
     $idanimal = $_POST['idanimal'];
     $data = $_POST['data'];
-    $idstatus = $_POST['idstatus'];
     $observacoes = $_POST['observacoes'];
-    createConsulta($idveterinario, $idanimal, $data, $idstatus);
+    createConsulta($idveterinario, $idanimal, $data, $observacoes);
 }
 
 function listarConsultas() {
@@ -36,13 +35,35 @@ function quantidadeConsultas() {
     return $count;
 }
 
+function listarVeterinarios() {
+    $result = getVeterinarios();
+    while($row = mysqli_fetch_array($result)) {
+        echo "<option value='$row[idveterinario]'>";
+    }
+}
+
+function listarClientes() {
+    $result = getClientes();
+    while($row = mysqli_fetch_array($result)) {
+        echo "<option value='$row[idcliente]'>";
+    }
+}
+
+function listarPets() {
+    $result = getPets();
+    while($row = mysqli_fetch_array($result)) {
+        echo "<option value='$row[idanimal]'>";
+    }
+}
+
 if(isset($_POST['update'])) {
     $idconsulta = $_POST['idconsulta'];
+    $idveterinario = $_POST['idveterinario'];
     $idanimal = $_POST['idanimal'];
     $data = $_POST['data'];
     $idstatus = $_POST['idstatus'];
-    $observacoes = $_POST['observacoes']
-    updateConsulta($idconsulta, $idanimal, $data, $idstatus);
+    $observacoes = $_POST['observacoes'];
+    updateConsulta($idconsulta, $idveterinario, $idanimal, $data, $idstatus, $observacoes);
 }
 
 if(isset($_POST['deleteconsulta'])) {

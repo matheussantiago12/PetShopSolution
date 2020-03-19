@@ -14,9 +14,6 @@
 </head>
 <body>
     <div class="main">
-        <div class="logo">
-            <a href="index.php"><h1>Pet Shop</h1></a>
-        </div>    
         <div class="list">
             <div class="teste">
                 <div class="item">
@@ -34,5 +31,58 @@
             </div>       
         </div>     
     </div>
-</body>
+    <div class="aside">
+        <a href="index.php">
+            <div class="aside-row first">
+                <h1>Pet Shop</h1>
+            </div>
+        </a>
+        <a href="consultas.php">
+            <div class="aside-row">
+                <div class="aside-icon">
+                    C
+                </div>
+                <div class="aside-title">
+                    Consultas
+                </div>
+            </div>
+        </a>
+        <a href="clientes.php">
+            <div class="aside-row">
+                <div class="aside-icon">
+                    C
+                </div>
+                <div class="aside-title">
+                    Clientes
+                </div>
+            </div>
+        </a>
+        <a href="veterinarios.php">
+            <div class="aside-row">
+                <div class="aside-icon">
+                    V
+                </div>
+                <div class="aside-title">
+                    Veterinários
+                </div>
+            </div>
+        </a>
+        <a href="pets.php">
+            <div class="aside-row">
+                <div class="aside-icon">
+                    P
+                </div>
+                <div class="aside-title">
+                    Pets
+                </div>
+            </div>
+        </a>
+
+        <a href="pets.php">
+            <div class="aside-row last">
+                <
+            </div>
+        </a>
+        </div>
+    </body>
 </html>

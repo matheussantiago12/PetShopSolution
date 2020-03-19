@@ -1,6 +1,7 @@
 <?php include("header.php")?>
 <?php include("petController.php")?>
 <script src="public/js/pet.js"></script>
+<div class="testee">
     <div class="body">
         <div class="cabecalho">
             <h1>Pets cadastrados</h1>
@@ -41,4 +42,4 @@
             </tbody>
         </table>
     </div>
-
+</div>

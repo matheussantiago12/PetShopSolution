@@ -3,8 +3,13 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.testee {
+    width: 82%;
+    float: right;
+}
+
 .body {
-    width: 75%;
+    width: 90%;
     margin-right: auto;
     margin-left: auto;
     padding: 30px;
@@ -329,6 +334,10 @@ label.custom-select {
     font: inherit;
     border-radius: 2px;
     width: 13%;
+}
+
+.cabecalhoRegistro #data {
+    width: 16%;
 }
 
 .cabecalhoRegistro form {
