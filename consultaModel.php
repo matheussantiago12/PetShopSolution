@@ -37,7 +37,8 @@ function getConsulta($id) {
     JOIN veterinario v ON c.idveterinario = v.idveterinario
     JOIN animal a ON c.idanimal = a.idanimal
     JOIN cliente cl ON a.idcliente = cl.idcliente 
-    JOIN status s ON c.idstatus = s.idstatus";
+    JOIN status s ON c.idstatus = s.idstatus 
+    WHERE c.idconsulta = '$id'";
     $result = mysqli_query($connect, $query);
     return $result;
 }
@@ -68,23 +69,22 @@ function deleteConsulta($id) {
     $connect->close();
 }
 
-function getVeterinarios() {
+function getVeterinariosConsulta() {
     global $connect;
     $query = "SELECT idveterinario, nome FROM veterinario";
     $result = mysqli_query($connect, $query);
     return $result;
 }
 
-function getClientes() {
+function getPetConsulta($id) {
     global $connect;
-    $query = "SELECT idcliente, nome FROM cliente";
-    $result = mysqli_query($connect, $query);
-    return $result;
-}
-
-function getPets() {
-    global $connect;
-    $query = "SELECT idanimal, nome FROM animal";
+    $query = "SELECT c.idanimal, a.nome, a.raca, t.nome_tipo as tipo,
+    cl.nome as dono_nome, cl.sobrenome as dono_sobrenome, cl.telefone, cl.idcliente
+    FROM consulta c
+    JOIN animal a ON c.idanimal = a.idanimal 
+    JOIN cliente cl ON a.idcliente = cl.idcliente
+    JOIN tipo_animal t ON a.idtipo = t.idtipo
+    WHERE c.idconsulta ='$id'";
     $result = mysqli_query($connect, $query);
     return $result;
 }

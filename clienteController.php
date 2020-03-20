@@ -45,6 +45,7 @@ if(isset($_POST['update'])) {
     $telefone = $_POST['telefone'];
     $endereco = $_POST['endereco'];
     updateCliente($idcliente, $nome, $sobrenome, $cpf, $telefone, $endereco);
+
 }
 
 if(isset($_POST['deletecliente'])) {

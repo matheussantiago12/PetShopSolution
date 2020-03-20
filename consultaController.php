@@ -35,24 +35,44 @@ function quantidadeConsultas() {
     return $count;
 }
 
-function listarVeterinarios() {
-    $result = getVeterinarios();
+function listarPetsConsulta($id) {
+    $result = getPetsConsulta($id);
     while($row = mysqli_fetch_array($result)) {
-        echo "<option value='$row[idveterinario]'>";
+        echo "<option value='$row[idanimal]'>$row[nome]</option>";
     }
 }
 
-function listarClientes() {
-    $result = getClientes();
+function listarPetConsulta($id) {
+    $result = getPetConsulta($id);
     while($row = mysqli_fetch_array($result)) {
-        echo "<option value='$row[idcliente]'>";
+        echo "<img src='https://catiororeflexivo.com/wp-content/uploads/2019/10/flamengo-doze-rifa-500x500.jpg'></img>";
+        echo "<div class='left'>";
+        echo "<h1>$row[nome]</h1>";
+        echo "<span>$row[tipo]" . ", " . "$row[raca]</span>";
+        echo "</div>";
+        echo "<div class='right'>";
+        echo "<a href='petsInfo.php?id=$row[idanimal]'>Ver</a>";
+        echo "</div>";
     }
 }
 
-function listarPets() {
-    $result = getPets();
+function listarClienteConsulta($id) {
+    $result = getPetConsulta($id);
     while($row = mysqli_fetch_array($result)) {
-        echo "<option value='$row[idanimal]'>";
+        echo "<div class='left' id='$row[idcliente]'>";
+        echo "<h1>$row[dono_nome]"." "."$row[dono_sobrenome]</h1>";
+        echo "<span>$row[telefone]</span>";
+        echo "</div>";
+        echo "<div class='right'>";
+        echo "<a href='clientesInfo.php?id=$row[idcliente]'>Ver</a>";
+        echo "</div>";
+    }
+}
+
+function listarVeterinariosConsulta() {
+    $result = getVeterinariosConsulta();
+    while($row = mysqli_fetch_array($result)) {
+        echo "<option value='$row[idveterinario]'>$row[nome]</option>";
     }
 }
 

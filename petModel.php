@@ -24,7 +24,8 @@ function getPets() {
 
 function getPet($id) {
     global $connect;
-    $query = "SELECT a.idanimal, a.nome, a.nascimento, a.raca, a.descricao, t.nome_tipo as tipo, c.nome as dono 
+    $query = "SELECT a.idanimal, a.nome, a.nascimento, a.raca, a.descricao, t.idtipo as idtipo, t.nome_tipo as tipo,
+    c.nome as dono_nome, c.sobrenome as dono_sobrenome 
     FROM animal a 
     JOIN cliente c ON a.idcliente = c.idcliente
     JOIN tipo_animal t ON a.idtipo = t.idtipo
@@ -65,4 +66,16 @@ function deletePet($id) {
         echo "Error" . $query . ' ' . $connect->connect_error;
     }
     $connect->close();
+}
+
+function getPetVacinas($id) {
+    global $connect;
+    $query = "SELECT va.idvacina, va.data, va.nome AS nome_vacina, v.idveterinario, v.nome AS nome_veterinario,
+    v.sobrenome AS sobrenome_veterinario, a.idanimal, a.nome AS nome_pet
+    FROM vacina_animal va
+    JOIN veterinario v ON va.id_veterinario = v.idveterinario
+    JOIN animal a ON va.id_animal = a.idanimal
+    WHERE idvacina = '$id'";
+    $result = mysqli_query($connect, $query);
+    return $result;
 }

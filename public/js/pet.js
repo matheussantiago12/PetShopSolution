@@ -27,6 +27,7 @@ $(document).ready(function () {
             }
         });
     });
+    
 
     $("body").on("click", ".delete", function () {
         var deletepet = "delete";
@@ -76,7 +77,39 @@ $(document).ready(function () {
             }
         });
         $("table").load(" table > *");
+        $("div").load(" .otherInfos > *");
         limparDados();
+    });
+
+    $("body").on("click", "#createPetAlt", function () {
+        console.log("testess");
+        var submit = "submit";
+        var idcliente = $("#idcliente").val();
+        var nome = $("#nomePet").val();
+        var tipo = $("#tipoPet").val();
+        var raca = $("#raca").val();
+        var nascimento = $("#dataPet").val();
+        var descricao = $("#descricao").val();
+        $.ajax({
+            url: 'petController.php',
+            method: 'POST',
+            data: {
+                submit: submit,
+                nome: nome,
+                tipo: tipo,
+                nascimento: nascimento,
+                idcliente: idcliente,
+                descricao: descricao,
+                raca: raca
+            },
+            success: function (response) {
+                console.log("teste");
+                teste = true;
+                limparDados();
+                teste = false;
+            }
+        });
+        $(".otherInfos").load(" .otherInfos > *");
     });
 
 });

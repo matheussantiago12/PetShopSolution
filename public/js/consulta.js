@@ -67,12 +67,20 @@ $(document).ready(function () {
                 observacoes: observacoes
             },
             success: function (response) {
-                $("table").load(" table > *");
-                limparDados();
+                alert("Consulta cadastrada")
             }
         });
-        $("table").load(" table > *");
-        limparDados();
+    });
+
+    $("#cliente").keyup(function(event){
+        if(window.event.keyCode === 13) {
+            var datalist = document.getElementById("clientes");
+            for (var i = 0; i < datalist.length; i++) {
+                var txt = datalist.options[i].text;
+                var include = txt.toLowerCase().startsWith(keyword.toLowerCase());
+                datalist.options[i].style.display = include ? 'list-item':'none';
+            }       
+        }
     });
 
 });
