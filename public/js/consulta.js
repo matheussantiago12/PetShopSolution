@@ -1,51 +1,30 @@
 var url = 'consultaController.php';
 
 $(document).ready(function () {
-    $("body").on("click", "#update", function () {
+    $("body").on("click", "#updateConsulta", function () {
         console.log("teste");
         var updateconsulta = "update";
-        var idcliente = $("#idcliente").val();
-        var nome = $("#nome").val();
-        var sobrenome = $("#sobrenome").val();
-        var cpf = $("#cpf").val();
-        var endereco = $("#endereco").val();
-        var telefone = $("#telefone").val();
+        var idconsulta = $("#idconsulta").val();
+        var idveterinario = $("#idveterinario").val();
+        var idanimal = $("#idanimal").val();
+        var idstatus = $("#idstatus").val();
+        var data = $("#data").val();
+        var observacoes = $("#observacoes").val();
 
         $.ajax({
             url: url,
             method: 'POST',
             data: {
-                update: update,
-                idcliente: idcliente,
-                nome: nome,
-                sobrenome: sobrenome,
-                cpf: cpf,
-                endereco: endereco,
-                telefone: telefone
+                updateconsulta: updateconsulta,
+                idconsulta: idconsulta,
+                idveterinario: idveterinario,
+                idanimal: idanimal,
+                idstatus: idstatus,
+                data: data,
+                observacoes: observacoes
             },
-            success: function (response) {
-                alert(response);
-            }
-        });
-    });
-
-    $("body").on("click", ".delete", function () {
-        var deletecliente = "delete";
-        var idcliente = $(this).attr("value");
-        var tr = $(this).closest('tr');
-
-        $.ajax({
-            url: url,
-            method: 'POST',
-            data: {
-                deletecliente: deletecliente,
-                idcliente: idcliente
-            },
-            success: function (response) {
-                console.log("teste");
-                tr.fadeOut(500, function () {
-                    $(this).remove();
-                });
+            success: function (data) {
+                alert(data);
             }
         });
     });

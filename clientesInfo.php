@@ -1,7 +1,7 @@
 <?php include("header.php") ?>
-<?php include("clienteController.php")?>
-<?php include("petController.php")?>
-<?php include("consultaController.php")?>
+<?php require_once("clienteController.php")?>
+<?php require_once("petController.php")?>
+<?php require_once("consultaController.php")?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -63,7 +63,7 @@
                             <input type="text" placeholder="Data de cadastro" name="dataregistro" id="dataregistro" disabled value="<?php echo listarCliente($_GET['id'])['data_registro']?>"> 
                         </div>
                         <div class="row">
-                            <button class="btnSalvar shadow" name="update" id="update">Salvar</button>
+                            <button class="btnSalvar shadow" name="update" id="updateCliente">Salvar</button>
                             <button class="btnSalvar btnLimpar shadow" onclick="limparDados();">Limpar</button>
                         </div>
                 </div>

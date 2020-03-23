@@ -1,5 +1,5 @@
 <?php
-include("clienteModel.php");
+require_once("clienteModel.php");
 
 if(isset($_POST['create'])) {
     $nome = $_POST['nome'];
@@ -37,7 +37,7 @@ function quantidadeClientes() {
     return $count;
 }
 
-if(isset($_POST['update'])) {
+if(isset($_POST['updateCliente'])) {
     $idcliente = $_POST['idcliente'];
     $nome = $_POST['nome'];
     $sobrenome = $_POST['sobrenome'];

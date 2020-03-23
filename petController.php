@@ -1,6 +1,6 @@
 <?php
-include("petModel.php");
-include("clienteModel.php");
+require_once("petModel.php");
+require_once("clienteModel.php");
 require_once("vacinaModel.php");
 require_once("veterinarioModel.php");
 
@@ -81,8 +81,8 @@ function listarPetVacinas($id) {
         echo "<div class='petCard shadow'>";
         echo "<div class='left'>";
         echo "<h1>$row[nome]</h1>";
-        echo "<span>$row[data]</span>";
         echo "<span>Aplicada por: $row[nome_veterinario] $row[sobrenome_veterinario]</span>";
+        echo "<span>em $row[data]</span>";
         echo "</div>";
         echo "<div class='right'>";
         echo "<a href='vacinasInfo.php?id=$row[idvacina]'>Ver</a>";
@@ -130,7 +130,7 @@ function listarPetsOptions($id) {
     }
 }
 
-function listarVeterinariosOptions($id) {
+function listarVeterinariosOptionsFromVacina($id) {
     $resultVeterinarios = getVeterinarios();
     $resultVacina = getVacina($id);
 

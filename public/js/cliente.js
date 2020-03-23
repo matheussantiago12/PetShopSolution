@@ -1,9 +1,9 @@
 var url = 'clienteController.php';
 
 $(document).ready(function () {
-    $("body").on("click", "#update", function () {
+    $("body").on("click", "#updateCliente", function () {
         console.log("teste");
-        var update = "update";
+        var updateCliente = "update";
         var idcliente = $("#idcliente").val();
         var nome = $("#nome").val();
         var sobrenome = $("#sobrenome").val();
@@ -12,10 +12,10 @@ $(document).ready(function () {
         var telefone = $("#telefone").val();
 
         $.ajax({
-            url: url,
+            url: 'clienteController.php',
             method: 'POST',
             data: {
-                update: update,
+                updateCliente: updateCliente,
                 idcliente: idcliente,
                 nome: nome,
                 sobrenome: sobrenome,
@@ -23,8 +23,8 @@ $(document).ready(function () {
                 endereco: endereco,
                 telefone: telefone
             },
-            success: function (response) {
-                alert(response);
+            success: function (data) {
+                alert(data);
             }
         });
     });
@@ -35,7 +35,7 @@ $(document).ready(function () {
         var tr = $(this).closest('tr');
 
         $.ajax({
-            url: url,
+            url: 'clienteController.php',
             method: 'POST',
             data: {
                 deletecliente: deletecliente,
@@ -58,7 +58,7 @@ $(document).ready(function () {
         var endereco = $("#endereco").val();
         var telefone = $("#telefone").val();
         $.ajax({
-            url: url,
+            url: 'clienteController.php',
             method: 'POST',
             data: {
                 create: create,

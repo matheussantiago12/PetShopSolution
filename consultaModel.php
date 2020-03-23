@@ -32,7 +32,7 @@ function getConsulta($id) {
     global $connect;
     $query = "SELECT c.idconsulta, v.nome AS nome_veterinario, v.sobrenome AS sobrenome_veterinario,
     a.nome AS nome_cachorro, cl.nome AS cliente_nome, cl.sobrenome AS cliente_sobrenome, c.data,
-     s.nome_status, c.data_registro
+     s.nome_status, c.data_registro, v.idveterinario, a.idanimal, c.idstatus, c.observacoes
     FROM consulta c
     JOIN veterinario v ON c.idveterinario = v.idveterinario
     JOIN animal a ON c.idanimal = a.idanimal

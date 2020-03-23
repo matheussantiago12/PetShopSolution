@@ -35,9 +35,9 @@
                          <label for="">Veterinário</label>
                     </div>
                     <label class="custom-select select-info">
-                        <select name="veterinario" id="veterinario" disabled>
+                        <select name="veterinario" id="idveterinario" disabled>
                             <option value="">Selecione o veterinário</option>
-                            <?php listarVeterinariosOptions($_GET['id']);?>
+                            <?php listarVeterinariosOptionsFromVacina($_GET['id']);?>
                         </select>
                     </label>
                 </div>

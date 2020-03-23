@@ -1,5 +1,5 @@
 <?php include("header.php")?>
-<?php include("clienteController.php")?>
+<?php require_once("clienteController.php")?>
 <script src="public/js/cliente.js"></script>
 <div class="testee">
     <div class="body">

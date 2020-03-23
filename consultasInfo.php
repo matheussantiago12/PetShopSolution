@@ -1,13 +1,14 @@
-<?php include("consultaController.php")?>
+<?php require_once("consultaController.php")?>
+<?php include("header.php") ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>teste</title>
+        <script src="public/js/consulta.js"></script>
     </head>
     <body>
-        <?php include("header.php") ?>
         <div class="testee">
         <div class="bodyInfo">
             <div class="form">
@@ -19,56 +20,65 @@
                     <div class="label">
                         <label for="">Id</label>
                     </div>
-                    <input type="text" placeholder="Id" disabled value="<?php echo listarConsulta($_GET['id'])['idconsulta'] ?>">
+                    <input type="text" placeholder="Id" id="idconsulta" disabled value="<?php echo listarConsulta($_GET['id'])['idconsulta'] ?>">
                 </div>
                 <div class="row">
                     <div class="label">
                         <label for="">Veterinário</label>
                     </div>
                     <label class="custom-select select-info">
-                        <select disabled>
-                            <?php listarVeterinariosConsulta() ?>
+                        <select id="idveterinario" disabled>
+                            <option value="">Selecione o veterinário...</option>
+                            <?php listarVeterinariosOptionsFromConsulta($_GET['id']); ?>
                         </select>
                     </label>
-                </div>
-                <div class="row">
-                    <div class="label">
-                        <label for="">Cliente</label>
-                    </div>
-                    <input type="text" placeholder="Cliente" disabled value="<?php echo listarConsulta($_GET['id'])['cliente_nome']." ";
-                    echo listarConsulta($_GET['id'])['cliente_sobrenome'] ?>">
                 </div>
                 <div class="row">
                     <div class="label">
                         <label for="">Pet</label>
                     </div>
                     <label class="custom-select select-info">
-                        <select disabled>
-                            <option value="1">Selecione...</option>
+                        <select id="idanimal" disabled>
+                            <option value="">Selecione...</option>
+                            <?php listarPetsOptionsFromConsulta($_GET['id']); ?>
                         </select>
                     </label>
                 </div>
+                
                 <div class="row">
                     <div class="label">
                         <label for="">Status</label>
                     </div>
                     <label class="custom-select select-info">
-                        <select disabled>
-                            <option value="1">Pendente</option>
-                            <option>Concluída</option>
-                            <option>Cancelada</option>
-
+                        <select id="idstatus" disabled>
+                            <option value="">Selecione os status...</option>
+                            <option value="1" <?php if(listarConsulta($_GET['id'])['idstatus']==1){echo "selected";}?>>Pendente</option>
+                            <option value="2" <?php if(listarConsulta($_GET['id'])['idstatus']==2){echo "selected";}?>>Concluída</option>
+                            <option value="3" <?php if(listarConsulta($_GET['id'])['idstatus']==3){echo "selected";}?>>Cancelada</option>
                         </select>
                     </label>
                 </div>
                 <div class="row">
                     <div class="label">
-                        <label for="">Data</label>
+                        <label for="">Data e hora da consulta</label>
                     </div>
-                    <input type="datetime-local" placeholder="Data" disabled>
+                    <?php $value = date("Y-m-d\TH:i:s", strtotime(listarConsulta($_GET['id'])['data'])); ?>
+                    <input id="data" type="datetime-local" placeholder="Data" disabled value="<?php echo $value; ?>">
                 </div>
                 <div class="row">
-                    <button class="btnSalvar shadow">Salvar</button>
+                    <div class="label">
+                        <label for="">Observações</label>
+                    </div>
+                    <input type="text" placeholder="Observações" id="observacoes" disabled value="<?php echo listarConsulta($_GET['id'])['observacoes'] ?>">
+                </div>
+                <div class="row">
+                    <div class="label">
+                        <label for="">Data de registro</label>
+                    </div>
+                    <input type="text" placeholder="Data" disabled value="<?php echo listarConsulta($_GET['id'])['data_registro']; ?>">
+                </div>
+                <div class="row">
+                    <button class="btnSalvar shadow" id="updateConsulta">Salvar</button>
                     <button class="btnSalvar btnLimpar shadow" onclick="limparDados();">Limpar</button>
                 </div>
             </div>

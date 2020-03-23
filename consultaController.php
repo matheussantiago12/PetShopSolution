@@ -1,5 +1,7 @@
 <?php
-include("consultaModel.php");
+require_once("consultaModel.php");
+require_once("veterinarioModel.php");
+require_once("petModel.php");
 
 if(isset($_POST['create'])) {
     $idveterinario = $_POST['idveterinario'];
@@ -69,19 +71,12 @@ function listarClienteConsulta($id) {
     }
 }
 
-function listarVeterinariosConsulta() {
-    $result = getVeterinariosConsulta();
-    while($row = mysqli_fetch_array($result)) {
-        echo "<option value='$row[idveterinario]'>$row[nome]</option>";
-    }
-}
-
 if(isset($_POST['updateconsulta'])) {
     $idconsulta = $_POST['idconsulta'];
     $idveterinario = $_POST['idveterinario'];
     $idanimal = $_POST['idanimal'];
-    $data = $_POST['data'];
     $idstatus = $_POST['idstatus'];
+    $data = $_POST['data'];
     $observacoes = $_POST['observacoes'];
     updateConsulta($idconsulta, $idveterinario, $idanimal, $data, $idstatus, $observacoes);
 }
@@ -89,4 +84,45 @@ if(isset($_POST['updateconsulta'])) {
 if(isset($_POST['deleteconsulta'])) {
     $id = $_POST['idconsulta'];
     deleteConsulta($id);
+}
+
+function listarVeterinariosOptionsFromConsulta($id) {
+    $resultVeterinarios = getVeterinarios();
+    $resultConsulta = getConsulta($id);
+
+    while($rowConsulta = mysqli_fetch_array($resultConsulta)) {
+        $idveterinario = $rowConsulta['idveterinario'];
+    }
+
+    while($rowVeterinarios = mysqli_fetch_array($resultVeterinarios)) {
+        $selected = "";
+        if($rowVeterinarios['idveterinario'] == $idveterinario) {
+            $selected = "selected='selected'";
+        }
+        echo "<option value='$rowVeterinarios[idveterinario]' $selected>$rowVeterinarios[nome]</option>";
+    }
+}
+
+function listarPetsOptionsFromConsulta($id) {
+    $resultPets = getPets();
+    $resultConsulta = getConsulta($id);
+
+    while($rowConsulta = mysqli_fetch_array($resultConsulta)) {
+        $idpet = $rowConsulta['idanimal'];
+    }
+
+    while($rowPets = mysqli_fetch_array($resultPets)) {
+        $selected = "";
+        if($rowPets['idanimal'] == $idpet) {
+            $selected = "selected='selected'";
+        }
+        echo "<option value='$rowPets[idanimal]' $selected>$rowPets[nome]</option>";
+    }
+}
+
+function listarVeterinariosConsulta() {
+    $result = getVeterinarios();
+    while($row = mysqli_fetch_array($result)) {
+        echo "<option value='$row[idveterinario]'>$row[nome] $row[sobrenome]</option>";
+    }
 }
