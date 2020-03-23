@@ -3,7 +3,7 @@ var url = 'consultaController.php';
 $(document).ready(function () {
     $("body").on("click", "#update", function () {
         console.log("teste");
-        var update = "update";
+        var updateconsulta = "update";
         var idcliente = $("#idcliente").val();
         var nome = $("#nome").val();
         var sobrenome = $("#sobrenome").val();
@@ -50,12 +50,17 @@ $(document).ready(function () {
         });
     });
 
-    $("body").on("click", "#createButton", function () {
+    $("body").on("click", "#createConsulta", function () {
+        console.log("testeeee");
         var create = "create";
         var idveterinario = $("#veterinario").val();
         var idanimal = $("#pet").val();
         var data = $("#data").val();
         var observacoes = $("#observacoes").val();
+        console.log(idveterinario);
+        console.log(idanimal);
+        console.log(data);
+        console.log(observacoes);
         $.ajax({
             url: url,
             method: 'POST',
@@ -66,8 +71,8 @@ $(document).ready(function () {
                 data: data,
                 observacoes: observacoes
             },
-            success: function (response) {
-                alert("Consulta cadastrada")
+            success: function (data) {
+                alert("Consulta cadastrada");
             }
         });
     });

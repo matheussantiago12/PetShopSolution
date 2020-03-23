@@ -82,6 +82,7 @@
                     <label class="custom-select select-info" id="tipo">
                         <select name="pet" id="pet">
                             <option value="">Selecione o pet</option>
+                            <?php listarClientePets($_GET['id']); ?>
                         </select>
                     </label>
                 </div>
@@ -109,7 +110,7 @@
                     <input type="text" name="observacoes" id="observacoes" placeholder="Observações">
                 </div>
                 <div class="row">
-                    <button class="btnSalvar shadow" name="update" id="createButton">Salvar</button>
+                    <button class="btnSalvar shadow" name="update" id="createConsulta">Salvar</button>
                 </div>
             </div>
             <div class="form">

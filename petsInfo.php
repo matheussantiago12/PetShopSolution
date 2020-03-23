@@ -1,5 +1,6 @@
 <?php include("header.php")?>
 <?php include("petController.php")?>
+<?php include("consultaController.php")?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,13 +31,24 @@
                 </div>
                 <div class="row">
                     <div class="label">
+                        <label for="">Dono</label>
+                    </div>
+                    <label class="custom-select select-info">
+                        <select id="idcliente" disabled>
+                            <option value="">Selecione...</option>
+                            <?php listarClienteOptions($_GET['id']); ?>
+                        </select>
+                    </label>
+                </div>
+                <div class="row">
+                    <div class="label">
                         <label for="">Animal</label>
                     </div>
                     <label class="custom-select select-info">
-                        <select id="select" disabled value="<?php echo listarPet($_GET['id'])['idtipo'] ?>">
+                        <select id="tipo" disabled value="<?php echo listarPet($_GET['id'])['idtipo'] ?>">
                             <option value="">Selecione...</option>
-                            <option value="1">Cão</option>
-                            <option value="2">Gato</option>
+                            <option value="1" <?php if(listarPet($_GET['id'])['idtipo']==1){echo "selected";}?>>Cão</option>
+                            <option value="2" <?php if(listarPet($_GET['id'])['idtipo']==2){echo "selected";}?>>Gato</option>
                         </select>
                     </label>
                 </div>
@@ -44,62 +56,60 @@
                     <div class="label">
                         <label for="">Raça</label>
                     </div>
-                    <input type="text" placeholder="Raça" disabled value="<?php echo listarPet($_GET['id'])['raca'] ?>">
+                    <input type="text" placeholder="Raça" id="raca" disabled value="<?php echo listarPet($_GET['id'])['raca'] ?>">
                 </div>
                 <div class="row">
                     <div class="label">
                         <label for="">Nascimento</label>
                     </div>
-                    <input type="date" placeholder="data" disabled value="<?php echo listarPet($_GET['id'])['nascimento'] ?>">
+                    <input type="date" placeholder="Data de nascimento" id="nascimento" disabled value="<?php echo listarPet($_GET['id'])['nascimento'] ?>">
                 </div>
                 <div class="row">
                     <div class="label">
                         <label for="">Descrição</label>
                     </div>
-                    <input type="text" placeholder="Descrição" disabled value="<?php echo listarPet($_GET['id'])['descricao'] ?>">
+                    <input type="text" placeholder="Descrição" id="descricao" disabled value="<?php echo listarPet($_GET['id'])['descricao'] ?>">
                 </div>
                 <div class="row">
-                    <div class="label">
-                        <label for="">Dono</label>
-                    </div>
-                    <input type="text" placeholder="Dono" disabled value="<?php echo listarPet($_GET['id'])['dono_nome']." "; echo listarPet($_GET['id'])['dono_sobrenome']?>">
-                </div>
-                <div class="row">
-                    <button class="btnSalvar shadow">Salvar</button>
+                    <button class="btnSalvar shadow" id="updatePet">Salvar</button>
                     <button class="btnSalvar btnLimpar shadow" onclick="limparDados();">Limpar</button>
                 </div>
             </div>
             <div class="otherInfos">
                 <h1>Vacinas</h1>
-                <div class="petCard shadow">
-                    <div class="left">
-                        <h1>Tipo</h1>
-                        <span>01/01/2020</span>
-                        <span>Aplicada por: Dr. Nome</span>
-                    </div>
-                    <div class="right">
-                        <a href="#">Ver</a>
-                    </div>
+                <?php listarPetVacinas($_GET['id'])?>
+            </div>
+        </div>
+        <div class="bodyInfo">
+            <div class="form">
+                <div class="formHeader">
+                    <h1>Cadastrar vacina</h1>
                 </div>
-                <div class="petCard shadow">
-                    <div class="left">
-                        <h1>Tipo</h1>
-                        <span>01/01/2020</span>
-                        <span>Aplicada por: Dr. Nome</span>
+                <div class="row">
+                    <div class="label">
+                        <label for="">Tipo da vacina</label>
                     </div>
-                    <div class="right">
-                        <a href="#">Editar</a>
-                    </div>
+                    <input type="text" placeholder="Tipo da vacina" id="tipovacina">
                 </div>
-                <div class="petCard shadow">
-                    <div class="left">
-                        <h1>Tipo</h1>
-                        <span>01/01/2020</span>
-                        <span>Aplicada por: Dr. Nome</span>
+                <div class="row">
+                    <div class="label">
+                         <label for="">Veterinário</label>
                     </div>
-                    <div class="right">
-                        <a href="#">Ver</a>
+                    <label class="custom-select select-info">
+                        <select name="veterinario" id="veterinario">
+                            <option value="">Selecione o veterinário</option>
+                            <?php listarVeterinariosConsulta(); ?>
+                        </select>
+                    </label>
+                </div>
+                <div class="row">
+                    <div class="label">
+                        <label for="">Data</label>
                     </div>
+                    <input type="date" name="data" id="data">
+                </div>
+                <div class="row">
+                    <button class="btnSalvar shadow" id="createVacina">Salvar</button>
                 </div>
             </div>
         </div>

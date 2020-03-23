@@ -25,7 +25,7 @@ function getPets() {
 function getPet($id) {
     global $connect;
     $query = "SELECT a.idanimal, a.nome, a.nascimento, a.raca, a.descricao, t.idtipo as idtipo, t.nome_tipo as tipo,
-    c.nome as dono_nome, c.sobrenome as dono_sobrenome 
+    c.nome as dono_nome, c.sobrenome as dono_sobrenome, c.idcliente
     FROM animal a 
     JOIN cliente c ON a.idcliente = c.idcliente
     JOIN tipo_animal t ON a.idtipo = t.idtipo
@@ -46,8 +46,8 @@ function getClientPets($idcliente) {
 function updatePet($idanimal, $nome, $nascimento, $raca, $descricao, $tipo, $idcliente) {
     global $connect;
     $query = "UPDATE animal 
-    SET nome = '$nome', nascimeno = '$nascimento', raca = '$raca', descricao = '$descricao', tipo = '$tipo', idcliente = '$idcliente' 
-    WHERE idanimal = '$idanimal'";
+    SET nome = '$nome', nascimento = '$nascimento', raca = '$raca', descricao = '$descricao', idtipo = '$tipo',
+    idcliente = '$idcliente' WHERE idanimal = '$idanimal'";
     if(mysqli_query($connect, $query)) {
         echo "Update";
     } else {
@@ -68,14 +68,36 @@ function deletePet($id) {
     $connect->close();
 }
 
+// function getPetVacinas($id) {
+//     global $connect;
+//     $query = "SELECT va.idvacina, va.data, va.nome AS nome_vacina, v.idveterinario, v.nome AS nome_veterinario,
+//     v.sobrenome AS sobrenome_veterinario, a.idanimal, a.nome AS nome_pet
+//     FROM vacina_animal va
+//     JOIN veterinario v ON va.id_veterinario = v.idveterinario
+//     JOIN animal a ON va.id_animal = a.idanimal
+//     WHERE idvacina = '$id'";
+//     $result = mysqli_query($connect, $query);
+//     return $result;
+// }
+
+function createPetVacina($nomeVacina, $idveterinario, $idanimal, $data) {
+    global $connect;
+    $query = "INSERT INTO vacina_animal(nome, id_veterinario, id_animal, data, data_registro) 
+    VALUES ('$nomeVacina', '$idveterinario', '$idanimal', '$data', now())";
+
+    if($connect->query($query)) {
+        echo "Registro adicionado";
+    } else {
+        echo "Error " . $query . ' ' . $connect->connect_error;
+    }   
+    $connect->close();
+}
+
 function getPetVacinas($id) {
     global $connect;
-    $query = "SELECT va.idvacina, va.data, va.nome AS nome_vacina, v.idveterinario, v.nome AS nome_veterinario,
-    v.sobrenome AS sobrenome_veterinario, a.idanimal, a.nome AS nome_pet
-    FROM vacina_animal va
-    JOIN veterinario v ON va.id_veterinario = v.idveterinario
-    JOIN animal a ON va.id_animal = a.idanimal
-    WHERE idvacina = '$id'";
+    $query = "SELECT va.idvacina, va.data, va.nome, va.id_veterinario, va.id_animal, va.data_registro, 
+    v.nome as nome_veterinario, v.sobrenome as sobrenome_veterinario 
+    FROM vacina_animal va JOIN veterinario v ON va.id_veterinario = v.idveterinario WHERE id_animal = '$id'";
     $result = mysqli_query($connect, $query);
     return $result;
 }

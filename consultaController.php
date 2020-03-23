@@ -76,7 +76,7 @@ function listarVeterinariosConsulta() {
     }
 }
 
-if(isset($_POST['update'])) {
+if(isset($_POST['updateconsulta'])) {
     $idconsulta = $_POST['idconsulta'];
     $idveterinario = $_POST['idveterinario'];
     $idanimal = $_POST['idanimal'];

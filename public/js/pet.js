@@ -1,29 +1,29 @@
 $(document).ready(function () {
-    $("#update").click(function () {
+    $("#updatePet").click(function () {
         var update = "update";
+        var idanimal = $("#idpet").val();
         var idcliente = $("#idcliente").val();
         var nome = $("#nome").val();
-        var sobrenome = $("#sobrenome").val();
-        var cpf = $("#cpf").val();
-        var endereco = $("#endereco").val();
-        var telefone = $("#telefone").val();
-        var data = $("#data").val();
-
+        var tipo = $("#tipo").val();
+        var raca = $("#raca").val();
+        var nascimento = $("#nascimento").val();
+        var descricao = $("#descricao").val();
+        console.log("Id Cliente: "+idcliente);
         $.ajax({
-            url: 'clienteController.php',
+            url: 'petController.php',
             method: 'POST',
             data: {
                 update: update,
-                idcliente: idcliente,
+                idanimal: idanimal,
                 nome: nome,
-                sobrenome: sobrenome,
-                cpf: cpf,
-                endereco: endereco,
-                telefone: telefone,
-                data: data
+                tipo: tipo,
+                raca: raca,
+                nascimento: nascimento,
+                descricao: descricao,
+                idcliente: idcliente
             },
-            success: function (response) {
-                alert(response);
+            success: function (data) {
+                alert(data);
             }
         });
     });
@@ -110,6 +110,36 @@ $(document).ready(function () {
             }
         });
         $(".otherInfos").load(" .otherInfos > *");
+    });
+
+    $("body").on("click", "#createVacina", function () {
+        console.log("testeeee");
+        var vacina = "vacina";
+        var nomevacina = $("#tipovacina").val();
+        var idveterinario = $("#veterinario").val();
+        var idanimal = $("#idpet").val();
+        var data = $("#data").val();
+        console.log(vacina);
+        console.log(nomevacina);
+        console.log(idveterinario);
+        console.log(idanimal);
+        console.log(data);
+
+        $.ajax({
+            url: 'petController.php',
+            method: 'POST',
+            data: {
+                vacina: vacina,
+                nomevacina: nomevacina,
+                idveterinario: idveterinario,
+                idanimal: idanimal,
+                data: data
+            },
+            success: function (response) {
+                alert(response);
+            }
+        });
+        
     });
 
 });

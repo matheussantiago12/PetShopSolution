@@ -1,10 +1,10 @@
 <?php
 require_once("db.php");
 
-function createConsulta($idveterinario, $idanimal, $data, $idstatus) {
+function createConsulta($idveterinario, $idanimal, $data, $observacoes) {
     global $connect;
-    $query = "INSERT INTO consulta(idveterinario, idanimal, data, idstatus, data_registro) 
-    VALUES ('$idveterinario', '$idanimal', '$data', 1, now())";
+    $query = "INSERT INTO consulta(idveterinario, idanimal, data, observacoes, idstatus, data_registro) 
+    VALUES ('$idveterinario', '$idanimal', '$data', '$observacoes', 1, now())";
     
     if($connect->query($query)) {
         echo "Registro adicionado";
