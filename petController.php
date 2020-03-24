@@ -32,7 +32,7 @@ function listarPets() {
         echo "<td>". $row['raca'] ."</td>";
         echo "<td>". $row['nascimento'] ."</td>";
         echo "<td>". $row['dono'] ."</td>";
-        echo "<td><a href='#' name='delete' class='delete' id='$row[idanimal]'><i class='fa fa-trash delete'></i></a></td>";
+        echo "<td><a href='#' name='deletepet' class='delete' value='$row[idanimal]'><i class='fa fa-trash delete'></i></a></td>";
         echo "</tr>";
     }
 }
@@ -50,7 +50,7 @@ function listarPetCards($idcliente) {
         echo "<img src='https://catiororeflexivo.com/wp-content/uploads/2019/10/flamengo-doze-rifa-500x500.jpg'></img>";
         echo "<div class='left'>";
         echo "<h1>$row[nome]</h1>";
-        echo "<span>$row[tipo]" . ", " . "$row[raca]" . ", " . "$row[idade]</span>";
+        echo "<span>$row[tipo]" . ", " . "$row[raca]" . ", " . "$row[idade] anos</span>";
         echo "</div>";
         echo "<div class='right'>";
         echo "<a href='petsInfo.php?id=$row[idanimal]'>Ver</a>";
@@ -71,7 +71,7 @@ if(isset($_POST['update'])) {
 }
 
 if(isset($_POST['deletepet'])) {
-    $id = $_POST['idpet'];
+    $id = $_POST['idanimal'];
     deletePet($id);
 }
 

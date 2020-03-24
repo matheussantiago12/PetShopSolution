@@ -1,5 +1,5 @@
-<?php require_once("consultaController.php")?>
 <?php include("header.php") ?>
+<?php require_once("consultaController.php")?>
 <!DOCTYPE html>
 <html lang="en">
     <head>

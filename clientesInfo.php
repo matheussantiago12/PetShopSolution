@@ -16,56 +16,59 @@
         <div class="testee">
             <div class="bodyInfo">
                 <div class="form">
-                        <div class="formHeader">
-                            <h1>Dados</h1>
-                            <a href="javascript:habilitarInputs()">Habilitar edição</a>
+                    <div class="formHeader">
+                        <h1>Dados</h1>
+                        <a href="javascript:habilitarInputs()">Habilitar edição</a>
+                    </div>
+                    <div class="form-validation" style="display: none">
+                        <span style="color: red">Preencha todos os campos corretamente.</span>
+                    </div>
+                    <div class="row">
+                        <div class="label">
+                            <label for="">Id</label>
                         </div>
-                        <div class="row">
-                            <div class="label">
-                                <label for="">Id</label>
-                            </div>
-                            <input type="text" placeholder="Id" name="idcliente" id="idcliente" disabled value="<?php echo listarCliente($_GET['id'])['idcliente'] ?>">
+                        <input type="text" placeholder="Id" name="idcliente" id="idcliente" disabled value="<?php echo listarCliente($_GET['id'])['idcliente'] ?>">
+                    </div>
+                    <div class="row">
+                        <div class="label">
+                            <label for="">Nome</label>
                         </div>
-                        <div class="row">
-                            <div class="label">
-                                <label for="">Nome</label>
-                            </div>
-                            <input type="text" placeholder="Nome" name="nome" id="nome" disabled value="<?php echo listarCliente($_GET['id'])['nome'] ?>">
+                        <input type="text" placeholder="Nome" name="nome" id="nome" disabled value="<?php echo listarCliente($_GET['id'])['nome'] ?>">
+                    </div>
+                    <div class="row">
+                        <div class="label">
+                            <label for="">Sobrenome</label>
                         </div>
-                        <div class="row">
-                            <div class="label">
-                                <label for="">Sobrenome</label>
-                            </div>
-                            <input type="text" placeholder="Sobrenome" name="sobrenome" id="sobrenome" disabled value="<?php echo listarCliente($_GET['id'])['sobrenome'] ?>">
+                        <input type="text" placeholder="Sobrenome" name="sobrenome" id="sobrenome" disabled value="<?php echo listarCliente($_GET['id'])['sobrenome'] ?>">
+                    </div>
+                    <div class="row">
+                        <div class="label">
+                            <label for="">CPF</label>
                         </div>
-                        <div class="row">
-                            <div class="label">
-                                <label for="">CPF</label>
-                            </div>
-                            <input type="text" placeholder="CPF" name="cpf" id="cpf" disabled value="<?php echo listarCliente($_GET['id'])['cpf'] ?>">
+                        <input type="text" placeholder="CPF" name="cpf" id="cpf" disabled value="<?php echo listarCliente($_GET['id'])['cpf'] ?>">
+                    </div>
+                    <div class="row">
+                        <div class="label">
+                            <label for="">Endereço</label>
                         </div>
-                        <div class="row">
-                            <div class="label">
-                                <label for="">Endereço</label>
-                            </div>
-                            <input type="text" placeholder="Endereço" name="endereco" id="endereco" disabled value="<?php echo listarCliente($_GET['id'])['endereco'] ?>">
+                        <input type="text" placeholder="Endereço" name="endereco" id="endereco" disabled value="<?php echo listarCliente($_GET['id'])['endereco'] ?>">
+                    </div>
+                    <div class="row">
+                        <div class="label">
+                            <label for="">Telefone</label>
                         </div>
-                        <div class="row">
-                            <div class="label">
-                                <label for="">Telefone</label>
-                            </div>
-                            <input type="text" placeholder="Telefone" name="telefone" id="telefone" disabled value="<?php echo listarCliente($_GET['id'])['telefone']?>"> 
+                        <input type="text" placeholder="Telefone" name="telefone" id="telefone" disabled value="<?php echo listarCliente($_GET['id'])['telefone']?>"> 
+                    </div>
+                    <div class="row">
+                        <div class="label">
+                            <label for="">Data de cadastro</label>
                         </div>
-                        <div class="row">
-                            <div class="label">
-                                <label for="">Data de cadastro</label>
-                            </div>
-                            <input type="text" placeholder="Data de cadastro" name="dataregistro" id="dataregistro" disabled value="<?php echo listarCliente($_GET['id'])['data_registro']?>"> 
-                        </div>
-                        <div class="row">
-                            <button class="btnSalvar shadow" name="update" id="updateCliente">Salvar</button>
-                            <button class="btnSalvar btnLimpar shadow" onclick="limparDados();">Limpar</button>
-                        </div>
+                        <input type="text" placeholder="Data de cadastro" name="dataregistro" id="dataregistro" disabled value="<?php echo listarCliente($_GET['id'])['data_registro']?>"> 
+                    </div>
+                    <div class="row">
+                        <button class="btnSalvar shadow" name="update" id="updateCliente">Salvar</button>
+                        <button class="btnSalvar btnLimpar shadow" onclick="limparDados();">Limpar</button>
+                    </div>
                 </div>
                 <div class="otherInfos">
                     <h1>Pets</h1>
@@ -75,6 +78,9 @@
         <div class="bodyInfo">
             <div class="form">
                 <h1>Cadastrar consulta</h1>
+                <div class="form-validation-consulta" style="display: none">
+                    <span style="color: red">Preencha todos os campos corretamente.</span>
+                </div>
                 <div class="row">
                     <div class="label">
                          <label for="">Pet</label>
@@ -105,9 +111,9 @@
                 </div>
                 <div class="row">
                     <div class="label">
-                         <label for="">Observações</label>
+                         <label for="">Observações (opcional)</label>
                     </div>
-                    <input type="text" name="observacoes" id="observacoes" placeholder="Observações">
+                    <input type="text" name="observacoes" id="observacoes" placeholder="Observações (opcional)">
                 </div>
                 <div class="row">
                     <button class="btnSalvar shadow" name="update" id="createConsulta">Salvar</button>
@@ -115,6 +121,9 @@
             </div>
             <div class="form">
                 <h1>Cadastrar pet</h1>
+                <div class="form-validation-pet" style="display: none">
+                    <span style="color: red">Preencha todos os campos corretamente.</span>
+                </div>
                 <div class="row">
                     <div class="label">
                          <label for="">Nome</label>
@@ -146,9 +155,9 @@
                 </div>
                 <div class="row">
                     <div class="label">
-                         <label for="">Descrição</label>
+                         <label for="">Descrição (opcional)</label>
                     </div>
-                    <input type="text" id="descricao" name="descricao" placeholder="Descrição">
+                    <input type="text" id="descricao" name="descricao" placeholder="Descrição (opcional)">
                 </div>
                 <div class="row">
                     <button class="btnSalvar shadow" name="create" id="createPetAlt">Salvar</button>

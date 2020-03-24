@@ -1,7 +1,12 @@
+<?php include('login/verificaLogin.php');?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="public/css/header.css">
@@ -10,6 +15,9 @@
     <link rel="stylesheet" href="public/css/general.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery.Validate/1.6/jQuery.Validate.js"></script>
+    <script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
+    <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
     <script src="public/js/script.js"></script>
 </head>
 <body>
@@ -97,9 +105,15 @@
                 </div>
             </div>
         </a>
-        <a href="#">
+        
+        <a href="login/logout.php">
             <div class="aside-row last">
-                <i class="fa fa-angle-left bold"></i>
+                <div class="aside-icon">
+                    <i class="fa fa-chevron-left"></i>
+                </div>
+                <div class="aside-title">
+                    Sair
+                </div>
             </div>
         </a>
         </div>

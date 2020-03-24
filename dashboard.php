@@ -9,6 +9,7 @@
 <body>
     <div class="testee">
         <div class="body dashboard">
+            <h1>Seja bem-vindo(a), <?php echo $_SESSION['usuario'];?>.</h1>
             <div class="dashboard-row">
                 <div class="dashboard-card shadow">
                     <div class="card-icon cyan">

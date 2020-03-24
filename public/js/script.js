@@ -35,9 +35,16 @@ function esconderRegistro() {
 }
 
 $(document).ready(function () {
-    $("#filtro").on("keyup", function () {
+    $(".filtro").on("keyup", function () {
         var value = $(this).val().toLowerCase();
-        $("#tabela tbody tr").filter(function () {
+        $("table tbody tr").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+
+    $(".filtro-select").on("change", function () {
+        var value = $(this).val().toLowerCase();
+        $("table tbody tr").filter(function () {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
     });

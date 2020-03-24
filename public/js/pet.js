@@ -1,3 +1,28 @@
+var validNomePet = false;
+var validRaca = false;
+var validNascimento = false;
+
+function validaPet(nome, raca, nascimento) {
+    if(nome.length >= 1) {
+        validNomePet = true;
+        $("#nomePet").css("border", "1px solid rgb(190, 190, 190)");
+    } else {
+        $("#nomePet").css("border", "1px solid red");
+    }
+    if(raca.length >= 2) {
+        validRaca = true;
+        $("#raca").css("border", "1px solid rgb(190, 190, 190)");
+    } else {
+        $("#raca").css("border", "1px solid red")
+    }
+    if(nascimento != "") {
+        validNascimento = true;
+        $("#dataPet").css("border", "1px solid rgb(190, 190, 190)");
+    } else {
+        $("#dataPet").css("border", "1px solid red");
+    }
+}
+
 $(document).ready(function () {
     $("#updatePet").click(function () {
         var update = "update";
@@ -41,8 +66,9 @@ $(document).ready(function () {
                 deletepet: deletepet,
                 idanimal: idanimal
             },
-            success: function (response) {
-                console.log("teste");
+            success: function (data) {
+                console.log(idanimal);
+                alert(data);
                 tr.fadeOut(500, function () {
                     $(this).remove();
                 });
@@ -59,7 +85,6 @@ $(document).ready(function () {
         var idcliente = $("#cliente").val();
         var descricao = $("#descricao").val();
         var raca = $("#raca").val();
-        console.log(nome);
         $.ajax({
             url: 'petController.php',
             method: 'POST',
@@ -74,10 +99,10 @@ $(document).ready(function () {
             },
             success: function (response) {
                 console.log("teste");
-            }
+            } 
         });
         $("table").load(" table > *");
-        $("div").load(" .otherInfos > *");
+        $(".otherInfos").load(" .otherInfos > *");
         limparDados();
     });
 
@@ -90,25 +115,36 @@ $(document).ready(function () {
         var raca = $("#raca").val();
         var nascimento = $("#dataPet").val();
         var descricao = $("#descricao").val();
-        $.ajax({
-            url: 'petController.php',
-            method: 'POST',
-            data: {
-                submit: submit,
-                nome: nome,
-                tipo: tipo,
-                nascimento: nascimento,
-                idcliente: idcliente,
-                descricao: descricao,
-                raca: raca
-            },
-            success: function (response) {
-                console.log("teste");
-                teste = true;
-                limparDados();
-                teste = false;
-            }
-        });
+        validaPet(nome, raca, nascimento);
+        if(validNomePet==true && validRaca==true && validNascimento==true) {
+            $(".form-validation-pet").css("display", "none");
+            $(".form input").css("border", "1px solid rgb(190, 190, 190)");
+            $(".form select").css("border", "1px solid rgb(190, 190, 190)");
+            $.ajax({
+                url: 'petController.php',
+                method: 'POST',
+                data: {
+                    submit: submit,
+                    nome: nome,
+                    tipo: tipo,
+                    nascimento: nascimento,
+                    idcliente: idcliente,
+                    descricao: descricao,
+                    raca: raca
+                },
+                success: function (response) {
+                    console.log("teste");
+                    teste = true;
+                    limparDados();
+                    teste = false;
+                }
+            });
+            validNomePet = false;
+            validRaca = false;
+            validNascimento = false;
+        } else {
+            $(".form-validation-pet").css("display", "block");
+        }
         $(".otherInfos").load(" .otherInfos > *");
     });
 
@@ -135,8 +171,9 @@ $(document).ready(function () {
                 idanimal: idanimal,
                 data: data
             },
-            success: function (response) {
-                alert(response);
+            success: function (data) {
+                alert(data);
+                $(".otherInfos").load(" .otherInfos > *");
             }
         });
         

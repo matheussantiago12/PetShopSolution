@@ -1,5 +1,30 @@
 var url = 'consultaController.php';
 
+var validPet = false;
+var validVeterinario = false;
+var validData = false;
+
+function validaConsulta(pet, veterinario, data) {
+    if(pet >= 1) {
+        validPet = true;
+        $("#pet").css("border", "1px solid rgb(190, 190, 190)");
+    } else {
+        $("#pet").css("border", "1px solid red");
+    }
+    if(veterinario >= 2) {
+        validVeterinario = true;
+        $("#veterinario").css("border", "1px solid rgb(190, 190, 190)");
+    } else {
+        $("#veterinario").css("border", "1px solid red")
+    }
+    if(data != "") {
+        validData = true;
+        $("#data").css("border", "1px solid rgb(190, 190, 190)");
+    } else {
+        $("#data").css("border", "1px solid red");
+    }
+}
+
 $(document).ready(function () {
     $("body").on("click", "#updateConsulta", function () {
         console.log("teste");
@@ -30,41 +55,37 @@ $(document).ready(function () {
     });
 
     $("body").on("click", "#createConsulta", function () {
-        console.log("testeeee");
         var create = "create";
         var idveterinario = $("#veterinario").val();
         var idanimal = $("#pet").val();
         var data = $("#data").val();
         var observacoes = $("#observacoes").val();
-        console.log(idveterinario);
-        console.log(idanimal);
-        console.log(data);
-        console.log(observacoes);
-        $.ajax({
-            url: url,
-            method: 'POST',
-            data: {
-                create: create,
-                idveterinario: idveterinario,
-                idanimal: idanimal,
-                data: data,
-                observacoes: observacoes
-            },
-            success: function (data) {
-                alert("Consulta cadastrada");
-            }
-        });
-    });
-
-    $("#cliente").keyup(function(event){
-        if(window.event.keyCode === 13) {
-            var datalist = document.getElementById("clientes");
-            for (var i = 0; i < datalist.length; i++) {
-                var txt = datalist.options[i].text;
-                var include = txt.toLowerCase().startsWith(keyword.toLowerCase());
-                datalist.options[i].style.display = include ? 'list-item':'none';
-            }       
+        validaConsulta(idanimal, idveterinario, data);
+        
+        if(validPet && validVeterinario && validData) {
+            $(".form-validation-consulta").css("display", "none");
+            $(".form input").css("border", "1px solid rgb(190, 190, 190)");
+            $(".form select").css("border", "1px solid rgb(190, 190, 190)");
+            $.ajax({
+                url: url,
+                method: 'POST',
+                data: {
+                    create: create,
+                    idveterinario: idveterinario,
+                    idanimal: idanimal,
+                    data: data,
+                    observacoes: observacoes
+                },
+                success: function (data) {
+                    alert("Consulta cadastrada");
+                }
+            });
+            validNome = false;
+            validSobrenome = false;
+            validCpf = false;
+        } else {
+            $(".form-validation-consulta").css("display", "block");
         }
+        
     });
-
 });

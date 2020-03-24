@@ -99,7 +99,7 @@ function listarVeterinariosOptionsFromConsulta($id) {
         if($rowVeterinarios['idveterinario'] == $idveterinario) {
             $selected = "selected='selected'";
         }
-        echo "<option value='$rowVeterinarios[idveterinario]' $selected>$rowVeterinarios[nome]</option>";
+        echo "<option value='$rowVeterinarios[idveterinario]' $selected>$rowVeterinarios[nome] $rowVeterinarios[sobrenome]</option>";
     }
 }
 

@@ -6,12 +6,13 @@
         <div class="cabecalho">
             <h1>Consultas cadastradas</h1>
             <div class="search">
-                <input type="text" placeholder="Pesquisar" class="shadow">
+                <input type="text" placeholder="Pesquisar" class="shadow filtro">
                 <label class="custom-select">
-                    <select class="shadow">
-                        <option>Pendente</option>
-                        <option>Concluída</option>
-                        <option>Cancelada</option>
+                    <select class="shadow filtro-select">
+                        <option value="">Todos</option>
+                        <option value="pendente">Pendente</option>
+                        <option value="concluiída">Concluída</option>
+                        <option value="cancelada">Cancelada</option>
                     </select>
                 </label>
             </div>

@@ -41,6 +41,7 @@ $(document).ready(function () {
             },
             success: function (response) {
                 alert(response);
+                history.go(-1);
             }
         });
     });

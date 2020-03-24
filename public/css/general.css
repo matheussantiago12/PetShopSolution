@@ -352,6 +352,12 @@ label.custom-select {
     justify-content: space-between;
 }
 
+.form-validation {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .btnCadastro {
     background-color: rgb(83, 165, 90);
     color: white;

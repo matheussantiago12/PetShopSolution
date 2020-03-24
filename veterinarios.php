@@ -6,9 +6,12 @@
         <div class="cabecalho">
             <h1>Veterinários cadastrados</h1>
             <div class="search">
-                <input type="text" id="filtro" placeholder="Pesquisar" class="shadow">
+                <input type="text" id="filtro" placeholder="Pesquisar" class="shadow filtro">
                 <button class="shadow" onclick="mostrarRegistro();">Cadastrar</button>
             </div>
+        </div>
+        <div class="form-validation" style="display: none">
+            <span style="color: red">Preencha todos os campos corretamente.</span>
         </div>
         <div class="cabecalhoRegistro shadow" id="registro">
             <input type="text" placeholder="Nome" name="nome" id="nome">

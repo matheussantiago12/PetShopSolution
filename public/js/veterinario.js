@@ -1,5 +1,37 @@
 var url = 'veterinarioController.php';
 
+var validNomeVeterinario = false;
+var validSobrenomeVeterinario = false;
+var validCPFVeterinario = false;
+var validEmail = false;
+
+function validaVeterinario(nome, sobrenome, cpf, email) {
+    if(nome.length >= 2) {
+        validNomeVeterinario = true;
+        $("#nome").css("border", "0px");
+    } else {
+        $("#nome").css("border", "1px solid red");
+    }
+    if(sobrenome.length >= 2) {
+        validSobrenomeVeterinario = true;
+        $("#sobrenome").css("border", "0px");
+    } else {
+        $("#sobrenome").css("border", "1px solid red")
+    }
+    if(cpf.length == 11) {
+        validCPFVeterinario = true;
+        $("#cpf").css("border", "0px");
+    } else {
+        $("#cpf").css("border", "1px solid red");
+    }
+    if(email.includes("@") && email.includes(".")) {
+        $("#email").css("border", "0px");
+        validEmail = true;
+    } else {
+        $("#email").css("border", "1px solid red");
+    }
+}
+
 $(document).ready(function () {
     $("#update").click(function () {
         console.log("teste")
@@ -53,21 +85,31 @@ $(document).ready(function () {
         var sobrenome = $("#sobrenome").val();
         var cpf = $("#cpf").val();
         var email = $("#email").val();
-        $.ajax({
-            url: url,
-            method: 'POST',
-            data: {
-                create: create,
-                nome: nome,
-                sobrenome: sobrenome,
-                cpf: cpf,
-                email: email
-            },
-            success: function (response) {
-                $("table").load(" table > *");
-                limparDados();
-            }
-        });
+        validaVeterinario(nome, sobrenome, cpf, email);
+        if(validNomeVeterinario && validSobrenomeVeterinario && validCPFVeterinario && validEmail) {
+            $(".form-validation").css("display", "none");
+            $(".form input").css("border", "1px solid rgb(190, 190, 190)");
+            $.ajax({
+                url: url,
+                method: 'POST',
+                data: {
+                    create: create,
+                    nome: nome,
+                    sobrenome: sobrenome,
+                    cpf: cpf,
+                    email: email
+                },
+                success: function (response) {
+                    $("table").load(" table > *");
+                    limparDados();
+                }
+            });
+            validNome = false;
+            validSobrenome = false;
+            validCpf = false;
+        } else {
+            $(".form-validation").css("display", "block");
+        } 
         $("table").load(" table > *");
         limparDados();
     });
