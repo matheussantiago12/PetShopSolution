@@ -16,6 +16,9 @@
                     <h1>Dados</h1>
                     <a href="javascript:habilitarInputs()">Habilitar edição</a>
                 </div>
+                <div class="form-validation-consulta" style="display: none">
+                    <span style="color: red">Preencha todos os campos corretamente.</span>
+                </div>
                 <div class="row">
                     <div class="label">
                         <label for="">Id</label>
@@ -27,7 +30,7 @@
                         <label for="">Veterinário</label>
                     </div>
                     <label class="custom-select select-info">
-                        <select id="idveterinario" class="clear" disabled>
+                        <select id="veterinario" class="clear" disabled>
                             <option value="">Selecione o veterinário...</option>
                             <?php listarVeterinariosOptionsFromConsulta($_GET['id']); ?>
                         </select>
@@ -38,7 +41,7 @@
                         <label for="">Pet</label>
                     </div>
                     <label class="custom-select select-info">
-                        <select id="idanimal" class="clear" disabled>
+                        <select id="pet" class="clear" disabled>
                             <option value="">Selecione...</option>
                             <?php listarPetsOptionsFromConsulta($_GET['id']); ?>
                         </select>
@@ -51,7 +54,6 @@
                     </div>
                     <label class="custom-select select-info">
                         <select id="idstatus" class="clear" disabled>
-                            <option value="">Selecione os status...</option>
                             <option value="1" <?php if(listarConsulta($_GET['id'])['idstatus']==1){echo "selected";}?>>Pendente</option>
                             <option value="2" <?php if(listarConsulta($_GET['id'])['idstatus']==2){echo "selected";}?>>Concluída</option>
                             <option value="3" <?php if(listarConsulta($_GET['id'])['idstatus']==3){echo "selected";}?>>Cancelada</option>

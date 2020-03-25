@@ -86,7 +86,7 @@ function getVeterinariosConsulta() {
 function getPetConsulta($id) {
     global $connect;
     $query = "SELECT c.idanimal, a.nome, a.raca, t.nome_tipo as tipo,
-    cl.nome as dono_nome, cl.sobrenome as dono_sobrenome, cl.telefone, cl.idcliente
+    cl.nome as dono_nome, cl.sobrenome as dono_sobrenome, cl.telefone, cl.idcliente, a.foto
     FROM consulta c
     JOIN animal a ON c.idanimal = a.idanimal 
     JOIN cliente cl ON a.idcliente = cl.idcliente
