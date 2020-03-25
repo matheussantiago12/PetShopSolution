@@ -28,14 +28,14 @@
                     <div class="label">
                         <label for="">Tipo da vacina</label>
                     </div>
-                    <input type="text" placeholder="Tipo da vacina" id="nome" disabled value="<?php echo listarVacina($_GET['id'])['nome']?>">
+                    <input type="text" placeholder="Tipo da vacina" id="nome" class="clear" disabled value="<?php echo listarVacina($_GET['id'])['nome']?>">
                 </div>
                 <div class="row">
                     <div class="label">
                          <label for="">Veterinário</label>
                     </div>
                     <label class="custom-select select-info">
-                        <select name="veterinario" id="idveterinario" disabled>
+                        <select name="veterinario" id="idveterinario" class="clear" disabled>
                             <option value="">Selecione o veterinário</option>
                             <?php listarVeterinariosOptionsFromVacina($_GET['id']);?>
                         </select>
@@ -46,7 +46,7 @@
                          <label for="">Pet</label>
                     </div>
                     <label class="custom-select select-info">
-                        <select name="idanimal" id="idanimal" disabled>
+                        <select name="idanimal" class="clear" id="idanimal" disabled>
                             <option value="">Selecione o pet</option>
                             <?php listarPetsOptions($_GET['id']); ?>
                         </select>
@@ -56,7 +56,7 @@
                     <div class="label">
                         <label for="">Data da aplicação</label>
                     </div>
-                    <input type="date" id="data" disabled value="<?php echo listarVacina($_GET['id'])['data']?>">
+                    <input type="date" id="data" class="clear" disabled value="<?php echo listarVacina($_GET['id'])['data']?>">
                 </div>
                 <div class="row">
                     <div class="label">

@@ -15,7 +15,7 @@
     <body>
         <div class="testee">
             <div class="bodyInfo">
-                <div class="form">
+                <div class="form" id="formClear">
                     <div class="formHeader">
                         <h1>Dados</h1>
                         <a href="javascript:habilitarInputs()">Habilitar edição</a>
@@ -33,31 +33,31 @@
                         <div class="label">
                             <label for="">Nome</label>
                         </div>
-                        <input type="text" placeholder="Nome" name="nome" id="nome" disabled value="<?php echo listarCliente($_GET['id'])['nome'] ?>">
+                        <input type="text" placeholder="Nome" name="nome" class="clear" id="nome" disabled value="<?php echo listarCliente($_GET['id'])['nome'] ?>">
                     </div>
                     <div class="row">
                         <div class="label">
                             <label for="">Sobrenome</label>
                         </div>
-                        <input type="text" placeholder="Sobrenome" name="sobrenome" id="sobrenome" disabled value="<?php echo listarCliente($_GET['id'])['sobrenome'] ?>">
+                        <input type="text" placeholder="Sobrenome" class="clear" name="sobrenome" id="sobrenome" disabled value="<?php echo listarCliente($_GET['id'])['sobrenome'] ?>">
                     </div>
                     <div class="row">
                         <div class="label">
                             <label for="">CPF</label>
                         </div>
-                        <input type="text" placeholder="CPF" name="cpf" id="cpf" disabled value="<?php echo listarCliente($_GET['id'])['cpf'] ?>">
+                        <input type="text" placeholder="CPF" name="cpf" class="clear" id="cpf" disabled value="<?php echo listarCliente($_GET['id'])['cpf'] ?>">
                     </div>
                     <div class="row">
                         <div class="label">
                             <label for="">Endereço</label>
                         </div>
-                        <input type="text" placeholder="Endereço" name="endereco" id="endereco" disabled value="<?php echo listarCliente($_GET['id'])['endereco'] ?>">
+                        <input type="text" placeholder="Endereço" class="clear" name="endereco" id="endereco" disabled value="<?php echo listarCliente($_GET['id'])['endereco'] ?>">
                     </div>
                     <div class="row">
                         <div class="label">
                             <label for="">Telefone</label>
                         </div>
-                        <input type="text" placeholder="Telefone" name="telefone" id="telefone" disabled value="<?php echo listarCliente($_GET['id'])['telefone']?>"> 
+                        <input type="text" placeholder="Telefone" class="clear" name="telefone" id="telefone" disabled value="<?php echo listarCliente($_GET['id'])['telefone']?>"> 
                     </div>
                     <div class="row">
                         <div class="label">
@@ -124,44 +124,52 @@
                 <div class="form-validation-pet" style="display: none">
                     <span style="color: red">Preencha todos os campos corretamente.</span>
                 </div>
-                <div class="row">
-                    <div class="label">
-                         <label for="">Nome</label>
+                <form onsubmit="return false" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="label">
+                            <label for="">Foto do pet</label>
+                        </div>
+                        <input type="file" id="foto" name="foto" placeholder="Foto">
                     </div>
-                    <input type="text" id="nomePet" name="nomePet" placeholder="Nome">
-                </div>
-                <div class="row">
-                    <div class="label">
-                         <label for="">Tipo</label>
+                    <div class="row">
+                        <div class="label">
+                            <label for="">Nome</label>
+                        </div>
+                        <input type="text" id="nomePet" name="nomePet" placeholder="Nome">
                     </div>
-                    <label class="custom-select select-info">
-                        <select name="tipo" id="tipoPet">
-                            <option value="1">Cão</option>
-                            <option value="2">Gato</option>
-                        </select>
-                     </label>
-                </div>
-                <div class="row">
-                    <div class="label">
-                         <label for="">Raça</label>
+                    <div class="row">
+                        <div class="label">
+                            <label for="">Tipo</label>
+                        </div>
+                        <label class="custom-select select-info">
+                            <select name="tipo" id="tipoPet">
+                                <option value="1">Cão</option>
+                                <option value="2">Gato</option>
+                            </select>
+                        </label>
                     </div>
-                    <input type="text" id="raca" name="raca" placeholder="Raça">
-                </div>
-                <div class="row">
-                    <div class="label">
-                         <label for="">Data de nascimento</label>
+                    <div class="row">
+                        <div class="label">
+                            <label for="">Raça</label>
+                        </div>
+                        <input type="text" id="raca" name="raca" placeholder="Raça">
                     </div>
-                    <input type="date" id="dataPet" name="data" placeholder="Data de nascimento">
-                </div>
-                <div class="row">
-                    <div class="label">
-                         <label for="">Descrição (opcional)</label>
+                    <div class="row">
+                        <div class="label">
+                            <label for="">Data de nascimento</label>
+                        </div>
+                        <input type="date" id="dataPet" name="data" placeholder="Data de nascimento">
                     </div>
-                    <input type="text" id="descricao" name="descricao" placeholder="Descrição (opcional)">
-                </div>
-                <div class="row">
-                    <button class="btnSalvar shadow" name="create" id="createPetAlt">Salvar</button>
-                </div>
+                    <div class="row">
+                        <div class="label">
+                            <label for="">Descrição (opcional)</label>
+                        </div>
+                        <input type="text" id="descricao" name="descricao" placeholder="Descrição (opcional)">
+                    </div>
+                    <div class="row">
+                        <button class="btnSalvar shadow" name="create" id="createPetAlt">Salvar</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

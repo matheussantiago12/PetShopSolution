@@ -5,13 +5,21 @@ require_once("vacinaModel.php");
 require_once("veterinarioModel.php");
 
 if(isset($_POST['submit'])) {
+    $nomeFoto = "";
+    if($_FILES['file']['name'] != '') {
+        $test = explode(".", $_FILES['file']['name']);
+        $extensao = end($test);
+        $nomeFoto = md5(time()) . '.' . $extensao;
+        $diretorio = './uploads/'.$nomeFoto;
+        move_uploaded_file($_FILES['file']['tmp_name'], $diretorio);
+    }
     $nome = $_POST['nome'];
     $nascimento = $_POST['nascimento'];
     $descricao = $_POST['descricao'];
     $raca = $_POST['raca'];
     $tipo = $_POST['tipo'];
     $idcliente = $_POST['idcliente'];
-    createPet($nome, $nascimento, $descricao, $raca, $tipo, $idcliente);  
+    createPet($nome, $nascimento, $descricao, $raca, $tipo, $idcliente, $nomeFoto);  
 }
 
 if(isset($_POST['vacina'])) {
@@ -43,16 +51,22 @@ function listarPet($id) {
     return $row;
 }
 
+function getQuantidadePets() {
+    $result = getPets();
+    $count = mysqli_num_rows($result);
+    return $count;
+}
+
 function listarPetCards($idcliente) {
     $result = getClientPets($idcliente);
     while($row = mysqli_fetch_array($result)) {
         echo "<div class='petCard shadow'>";
-        echo "<img src='https://catiororeflexivo.com/wp-content/uploads/2019/10/flamengo-doze-rifa-500x500.jpg'></img>";
-        echo "<div class='left'>";
+        echo "<img src='uploads/$row[foto]'></img>";
+        echo "<div class='leftPet'>";
         echo "<h1>$row[nome]</h1>";
         echo "<span>$row[tipo]" . ", " . "$row[raca]" . ", " . "$row[idade] anos</span>";
         echo "</div>";
-        echo "<div class='right'>";
+        echo "<div class='rightPet'>";
         echo "<a href='petsInfo.php?id=$row[idanimal]'>Ver</a>";
         echo "</div>";
         echo "</div>";
@@ -61,13 +75,26 @@ function listarPetCards($idcliente) {
 
 if(isset($_POST['update'])) {
     $idanimal = $_POST['idanimal'];
+    $result = getPet($idanimal);
+    $row = mysqli_fetch_array($result);
+    if(isset($_FILES['file'])) {
+        if($_FILES['file']['name'] != '') {
+            $test = explode(".", $_FILES['file']['name']);
+            $extensao = end($test);
+            $nomeFoto = md5(time()) . '.' . $extensao;
+            $diretorio = './uploads/'.$nomeFoto;
+            move_uploaded_file($_FILES['file']['tmp_name'], $diretorio);
+        }
+    } else {
+        $nomeFoto = $row['foto'];
+    }
     $nome = $_POST['nome'];
     $nascimento = $_POST['nascimento'];
     $descricao = $_POST['descricao'];
     $raca = $_POST['raca'];
     $tipo = $_POST['tipo'];
     $idcliente = $_POST['idcliente'];
-    updatePet($idanimal, $nome, $nascimento, $raca, $descricao, $tipo, $idcliente);
+    updatePet($idanimal, $nome, $nascimento, $raca, $descricao, $tipo, $idcliente, $nomeFoto);
 }
 
 if(isset($_POST['deletepet'])) {

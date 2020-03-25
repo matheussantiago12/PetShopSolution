@@ -16,6 +16,9 @@
                     <h1>Dados</h1>
                     <a href="javascript:habilitarInputs()">Habilitar edição</a>
                 </div>
+                <div class="form-validation" style="display: none">
+                    <span style="color: red">Preencha todos os campos corretamente.</span>
+                </div>
                 <div class="row">
                     <div class="label">
                         <label for="">Id</label>
@@ -26,25 +29,25 @@
                     <div class="label">
                         <label for="">Nome</label>
                     </div>
-                    <input type="text" placeholder="Nome" id="nome" disabled value="<?php echo listarVeterinario($_GET['id'])['nome']?>">
+                    <input type="text" placeholder="Nome" id="nome" class="clear" disabled value="<?php echo listarVeterinario($_GET['id'])['nome']?>">
                 </div>
                 <div class="row">
                     <div class="label">
                         <label for="">Sobrenome</label>
                     </div>
-                    <input type="text" placeholder="Sobrenome" id="sobrenome" disabled value="<?php echo listarVeterinario($_GET['id'])['sobrenome']?>">
+                    <input type="text" placeholder="Sobrenome" id="sobrenome" class="clear" disabled value="<?php echo listarVeterinario($_GET['id'])['sobrenome']?>">
                 </div>
                 <div class="row">
                     <div class="label">
                         <label for="">CPF</label>
                     </div>
-                    <input type="text" placeholder="CPF" id="cpf" disabled value="<?php echo listarVeterinario($_GET['id'])['cpf']?>">
+                    <input type="text" placeholder="CPF" id="cpf" class="clear" disabled value="<?php echo listarVeterinario($_GET['id'])['cpf']?>">
                 </div>
                 <div class="row">
                     <div class="label">
                         <label for="">Email</label>
                     </div>
-                    <input type="text" placeholder="Email" id="email" disabled  value="<?php echo listarVeterinario($_GET['id'])['email']?>">
+                    <input type="text" placeholder="Email" id="email" class="clear" disabled  value="<?php echo listarVeterinario($_GET['id'])['email']?>">
                 </div>
                 <div class="row">
                     <div class="label">

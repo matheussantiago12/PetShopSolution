@@ -45,16 +45,6 @@
                 <h1>Pet Shop</h1>
             </div>
         </a>
-        <a href="index.php">
-            <div class="aside-row">
-                <div class="aside-icon">
-                    <i class="fa fa-home"></i>
-                </div>
-                <div class="aside-title">
-                    Home
-                </div>
-            </div>
-        </a>
         <a href="dashboard.php">
             <div class="aside-row">
                 <div class="aside-icon">

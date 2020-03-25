@@ -27,7 +27,7 @@
                         <label for="">Veterinário</label>
                     </div>
                     <label class="custom-select select-info">
-                        <select id="idveterinario" disabled>
+                        <select id="idveterinario" class="clear" disabled>
                             <option value="">Selecione o veterinário...</option>
                             <?php listarVeterinariosOptionsFromConsulta($_GET['id']); ?>
                         </select>
@@ -38,7 +38,7 @@
                         <label for="">Pet</label>
                     </div>
                     <label class="custom-select select-info">
-                        <select id="idanimal" disabled>
+                        <select id="idanimal" class="clear" disabled>
                             <option value="">Selecione...</option>
                             <?php listarPetsOptionsFromConsulta($_GET['id']); ?>
                         </select>
@@ -50,7 +50,7 @@
                         <label for="">Status</label>
                     </div>
                     <label class="custom-select select-info">
-                        <select id="idstatus" disabled>
+                        <select id="idstatus" class="clear" disabled>
                             <option value="">Selecione os status...</option>
                             <option value="1" <?php if(listarConsulta($_GET['id'])['idstatus']==1){echo "selected";}?>>Pendente</option>
                             <option value="2" <?php if(listarConsulta($_GET['id'])['idstatus']==2){echo "selected";}?>>Concluída</option>
@@ -63,13 +63,13 @@
                         <label for="">Data e hora da consulta</label>
                     </div>
                     <?php $value = date("Y-m-d\TH:i:s", strtotime(listarConsulta($_GET['id'])['data'])); ?>
-                    <input id="data" type="datetime-local" placeholder="Data" disabled value="<?php echo $value; ?>">
+                    <input id="data" type="datetime-local" placeholder="Data" class="clear" disabled value="<?php echo $value; ?>">
                 </div>
                 <div class="row">
                     <div class="label">
                         <label for="">Observações</label>
                     </div>
-                    <input type="text" placeholder="Observações" id="observacoes" disabled value="<?php echo listarConsulta($_GET['id'])['observacoes'] ?>">
+                    <input type="text" placeholder="Observações" class="clear" id="observacoes" disabled value="<?php echo listarConsulta($_GET['id'])['observacoes'] ?>">
                 </div>
                 <div class="row">
                     <div class="label">

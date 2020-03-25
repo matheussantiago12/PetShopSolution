@@ -1,4 +1,8 @@
 <?php include("header.php")?>
+<?php require_once("clienteController.php")?>
+<?php require_once("consultaController.php")?>
+<?php require_once("petController.php")?>
+<?php require_once("veterinarioController.php")?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +20,7 @@
                         <i class="fa fa-user"></i>
                     </div>
                     <div class="card-text">
-                        <span><span class="card-number">298</span> clientes cadastrados</span>
+                        <span><span class="card-number"><?php echo getQuantidadeClientes();?></span> clientes cadastrados</span>
                     </div>
                 </div>
                 <div class="dashboard-card shadow">
@@ -24,7 +28,7 @@
                         <i class="fa fa-user"></i>
                     </div>
                     <div class="card-text">
-                        <span><span class="card-number">152</span> consultas agendadas</span>
+                        <span><span class="card-number"><?php echo getQuantidadeConsultasByStatus(1);?></span> consultas agendadas</span>
                     </div>
                 </div>
                 <div class="dashboard-card shadow">
@@ -32,7 +36,7 @@
                         <i class="fa fa-user"></i>
                     </div>
                     <div class="card-text">
-                        <span><span class="card-number">14</span> veterinários cadastrados</span>
+                        <span><span class="card-number"><?php echo getQuantidadeVeterinarios();?></span> veterinários cadastrados</span>
                     </div>
                 </div>
                 <div class="dashboard-card shadow">
@@ -40,7 +44,7 @@
                         <i class="fa fa-user"></i>
                     </div>
                     <div class="card-text">
-                        <span><span class="card-number">152</span> pets cadastrados</span>
+                        <span><span class="card-number"><?php echo getQuantidadePets();?></span> pets cadastrados</span>
                     </div>
                 </div>
             </div>            

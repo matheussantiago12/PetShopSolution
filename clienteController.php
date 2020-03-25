@@ -31,7 +31,7 @@ function listarCliente($id) {
     return $row;
 }
 
-function quantidadeClientes() {
+function getQuantidadeClientes() {
     $result = getClientes();
     $count = mysqli_num_rows($result);
     return $count;

@@ -1,5 +1,30 @@
 var url = 'vacinaController.php';
 
+var validTipo = false;
+var validVeterinario = false;
+var validData = false;
+
+function validaVeterinario(tipo, veterinario, data) {
+    if (tipo.length >= 1) {
+        validTipo = true;
+        $("#tipovacina").css("border", "1px solid rgb(190, 190, 190)");
+    } else {
+        $("#tipovacina").css("border", "1px solid red");
+    }
+    if (veterinario > 0) {
+        validVeterinario = true;
+        $("#veterinario").css("border", "1px solid rgb(190, 190, 190)");
+    } else {
+        $("#veterinario").css("border", "1px solid red")
+    }
+    if (data != "") {
+        validData = true;
+        $("#data").css("border", "1px solid rgb(190, 190, 190)");
+    } else {
+        $("#data").css("border", "1px solid red");
+    }
+}
+
 $(document).ready(function () {
     $("body").on("click", "#update", function () {
         console.log("teste");
@@ -44,6 +69,39 @@ $(document).ready(function () {
                 history.go(-1);
             }
         });
+    });
+
+    $("body").on("click", "#createVacina", function () {
+        var vacina = "vacina";
+        var nomevacina = $("#tipovacina").val();
+        var idveterinario = $("#veterinario").val();
+        var idanimal = $("#idpet").val();
+        var data = $("#data").val();
+        validaVeterinario(nomevacina, idveterinario, data);
+        if (validTipo && validVeterinario && validData) {
+            $(".form-validation-vacina").css("display", "none");
+            $(".form input").css("border", "1px solid rgb(190, 190, 190)");
+            $.ajax({
+                url: 'petController.php',
+                method: 'POST',
+                data: {
+                    vacina: vacina,
+                    nomevacina: nomevacina,
+                    idveterinario: idveterinario,
+                    idanimal: idanimal,
+                    data: data
+                },
+                success: function (data) {
+                    alert(data);
+                    $(".otherInfos").load(" .otherInfos > *");
+                }
+            });
+            validTipo = false;
+            validVeterinario = false;
+            validData = false;
+        } else {
+            $(".form-validation-vacina").css("display", "block"); 
+        }
     });
 
 });

@@ -28,6 +28,13 @@ function getConsultas() {
     return $result;
 }
 
+function getConsultasByStatus($status) {
+    global $connect;
+    $query = "SELECT idconsulta FROM consulta WHERE idstatus = '$status'";
+    $result = mysqli_query($connect, $query);
+    return $result;
+}
+
 function getConsulta($id) {
     global $connect;
     $query = "SELECT c.idconsulta, v.nome AS nome_veterinario, v.sobrenome AS sobrenome_veterinario,

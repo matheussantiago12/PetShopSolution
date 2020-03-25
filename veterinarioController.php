@@ -1,5 +1,5 @@
 <?php
-include("veterinarioModel.php");
+require_once("veterinarioModel.php");
 
 if(isset($_POST['create'])) {
     $nome = $_POST['nome'];
@@ -30,8 +30,8 @@ function listarVeterinario($id) {
     return $row;
 }
 
-function quantidadeClientes() {
-    $result = getClientes();
+function getQuantidadeVeterinarios() {
+    $result = getVeterinarios();
     $count = mysqli_num_rows($result);
     return $count;
 }

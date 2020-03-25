@@ -126,3 +126,9 @@ function listarVeterinariosConsulta() {
         echo "<option value='$row[idveterinario]'>$row[nome] $row[sobrenome]</option>";
     }
 }
+
+function getQuantidadeConsultasByStatus($status) {
+    $result = getConsultasByStatus($status);
+    $count = mysqli_num_rows($result);
+    return $count;
+}

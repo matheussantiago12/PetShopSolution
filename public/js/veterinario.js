@@ -6,26 +6,26 @@ var validCPFVeterinario = false;
 var validEmail = false;
 
 function validaVeterinario(nome, sobrenome, cpf, email) {
-    if(nome.length >= 2) {
+    if (nome.length >= 2) {
         validNomeVeterinario = true;
-        $("#nome").css("border", "0px");
+        $("#nome").css("border", "1px solid rgb(190, 190, 190)");
     } else {
         $("#nome").css("border", "1px solid red");
     }
-    if(sobrenome.length >= 2) {
+    if (sobrenome.length >= 2) {
         validSobrenomeVeterinario = true;
-        $("#sobrenome").css("border", "0px");
+        $("#sobrenome").css("border", "1px solid rgb(190, 190, 190)");
     } else {
         $("#sobrenome").css("border", "1px solid red")
     }
-    if(cpf.length == 11) {
+    if (cpf.length == 11) {
         validCPFVeterinario = true;
-        $("#cpf").css("border", "0px");
+        $("#cpf").css("border", "1px solid rgb(190, 190, 190)");
     } else {
         $("#cpf").css("border", "1px solid red");
     }
-    if(email.includes("@") && email.includes(".")) {
-        $("#email").css("border", "0px");
+    if (email.includes("@") && email.includes(".")) {
+        $("#email").css("border", "1px solid rgb(190, 190, 190)");
         validEmail = true;
     } else {
         $("#email").css("border", "1px solid red");
@@ -41,21 +41,31 @@ $(document).ready(function () {
         var sobrenome = $("#sobrenome").val();
         var cpf = $("#cpf").val();
         var email = $("#email").val();
-        $.ajax({
-            url: url,
-            method: 'POST',
-            data: {
-                update: update,
-                idveterinario: idveterinario,
-                nome: nome,
-                sobrenome: sobrenome,
-                cpf: cpf,
-                email: email
-            },
-            success: function (response) {
-                alert(response);
-            }
-        });
+        validaVeterinario(nome, sobrenome, cpf, email);
+        if (validNomeVeterinario && validSobrenomeVeterinario && validCPFVeterinario && validEmail) {
+            $(".form-validation").css("display", "none");
+            $(".form input").css("border", "1px solid rgb(190, 190, 190)");
+            $.ajax({
+                url: url,
+                method: 'POST',
+                data: {
+                    update: update,
+                    idveterinario: idveterinario,
+                    nome: nome,
+                    sobrenome: sobrenome,
+                    cpf: cpf,
+                    email: email
+                },
+                success: function (response) {
+                    alert(response);
+                }
+            });
+            validNome = false;
+            validSobrenome = false;
+            validCpf = false;
+        } else {
+            $(".form-validation").css("display", "block");
+        }
     });
 
     $("body").on("click", ".delete", function () {
@@ -86,7 +96,7 @@ $(document).ready(function () {
         var cpf = $("#cpf").val();
         var email = $("#email").val();
         validaVeterinario(nome, sobrenome, cpf, email);
-        if(validNomeVeterinario && validSobrenomeVeterinario && validCPFVeterinario && validEmail) {
+        if (validNomeVeterinario && validSobrenomeVeterinario && validCPFVeterinario && validEmail) {
             $(".form-validation").css("display", "none");
             $(".form input").css("border", "1px solid rgb(190, 190, 190)");
             $.ajax({
@@ -109,7 +119,7 @@ $(document).ready(function () {
             validCpf = false;
         } else {
             $(".form-validation").css("display", "block");
-        } 
+        }
         $("table").load(" table > *");
         limparDados();
     });

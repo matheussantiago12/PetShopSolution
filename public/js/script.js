@@ -3,7 +3,7 @@ var teste = false;
 function limparDados() {
     var inputs = document.getElementsByTagName("input");
     if (teste) {
-        for (var i = 1; i < inputs.length - 1; i++) {
+        for (var i = 1; i < inputs.length; i++) {
             if (inputs[i].type == "text" || inputs[i].type == "datetime-local" || inputs[i].type == "date") {
                 inputs[i].value = "";
             }
@@ -12,16 +12,9 @@ function limparDados() {
 }
 
 function habilitarInputs() {
-    var inputs = document.getElementsByTagName("input");
-    for (var i = 1; i < inputs.length - 1; i++) {
+    var inputs = document.getElementsByClassName("clear");
+    for (var i = 0; i < inputs.length; i++) {
         inputs[i].disabled = false;
-    }
-
-    var selects = document.getElementsByTagName("select");
-    if (selects.length != 0) {
-        for (var i = 0; i < selects.length; i++) {
-            selects[i].disabled = false;
-        }
     }
     teste = true;
 }

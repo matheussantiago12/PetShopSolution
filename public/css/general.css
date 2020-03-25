@@ -160,6 +160,12 @@ table a {
     width: 40%;
 }
 
+.form img {
+    width: 59%;
+    border: 2px solid rgba(0, 0, 0, 0.342);
+    border-radius: 3px;
+}
+
 .form form {
     width: 100%;
     height: 100%;
@@ -246,8 +252,19 @@ table a {
     padding-left: 10%;
 }
 
+.rightPet {
+    width: 15%;
+    text-align: right;
+}
+
+.leftPet {
+    width: 85%;
+    text-align: left;
+    margin-left: 5%;
+}
+
 .petCard {
-    width: 95%;
+    width: 97%;
     background-color: rgb(40, 40, 51);
     border: 1px solid rgb(34, 34, 39);
     border-radius: 8px;
@@ -257,8 +274,8 @@ table a {
     margin-bottom: 20px;
     color: rgb(233, 233, 233);
     display: flex;
-    justify-content: space-between;
-    height: 70px;
+    height: auto;
+
 }
 
 .petCard:nth-child(odd) {
@@ -266,7 +283,8 @@ table a {
 }
 
 .petCard img {
-    height: 100%;
+    height: 75px;
+    width: 75px;
     border-radius: 10px 2px 10px 2px;
 }
 
@@ -286,11 +304,11 @@ table a {
     box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.137);
 }
 
-
 .right {
     width: 35%;
     text-align: right;
 }
+
 
 .infoAdd {
     float: right;
