@@ -92,6 +92,7 @@
                     <div class="row">
                         <button class="btnSalvar shadow" id="updatePet">Salvar</button>
                         <button class="btnSalvar btnLimpar shadow" onclick="limparDados();">Limpar</button>
+                        <button class="btnSalvar btnLimpar shadow" value="<?php echo listarPet($_GET['id'])['idanimal'] ?>" id="excluirPet">Excluir</button>
                     </div>
                 </form>
             </div>

@@ -148,6 +148,24 @@ $(document).ready(function () {
         });
     });
 
+    $("body").on("click", "#excluirPet", function () {
+        var deletepet = "delete";
+        var idanimal= $("#excluirPet").val();
+
+        $.ajax({
+            url: 'petController.php',
+            method: 'POST',
+            data: {
+                deletepet: deletepet,
+                idanimal: idanimal,
+            },
+            success: function (response) {
+                alert(response);
+                history.go(-1);
+            }
+        });
+    });
+
     // $("body").on("click", "#createPet", function () {
     //     console.log("teste");
     //     var submit = "submit";
