@@ -1,6 +1,9 @@
 <?php include("header.php")?>
 <?php require_once("clienteController.php")?>
-<script src="public/js/cliente.js"></script>
+<head>
+    <script src="public/js/cliente.js"></script>
+    <title>Clientes</title>
+</head>
 <div class="testee">
     <div class="body">
         <div class="cabecalho">

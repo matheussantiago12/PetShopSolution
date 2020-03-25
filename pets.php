@@ -1,6 +1,9 @@
 <?php include("header.php")?>
 <?php include("petController.php")?>
-<script src="public/js/pet.js"></script>
+<head>
+    <script src="public/js/pet.js"></script>
+    <title>Pets</title>
+</head>
 <div class="testee">
     <div class="body">
         <div class="cabecalho">

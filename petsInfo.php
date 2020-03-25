@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="public/js/pet.js"></script>
     <script src="public/js/vacina.js"></script>
-    <title>teste</title>
+    <title>Informações do pet</title>
 </head>
 <body>
     <div class="testee">  

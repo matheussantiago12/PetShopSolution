@@ -5,7 +5,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>teste</title>
+        <title>Informações da consulta</title>
         <script src="public/js/consulta.js"></script>
     </head>
     <body>

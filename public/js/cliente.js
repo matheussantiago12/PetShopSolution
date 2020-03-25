@@ -92,8 +92,8 @@ $(document).ready(function () {
                 deletecliente: deletecliente,
                 idcliente: idcliente
             },
-            success: function (response) {
-                console.log("teste");
+            success: function (data) {
+                alert("Registro apagado");
                 tr.fadeOut(500, function () {
                     $(this).remove();
                 });
@@ -127,7 +127,9 @@ $(document).ready(function () {
                 },
                 success: function (response) {
                     $("table").load(" table > *");
+                    teste = true;
                     limparDados();
+                    teste = false;
                 }
             });
             validNome = false;

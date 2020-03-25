@@ -1,6 +1,9 @@
 <?php include("header.php")?>
 <?php include("veterinarioController.php")?>
-<script src="public/js/veterinario.js"></script>
+<head>
+    <script src="public/js/veterinario.js"></script>
+    <title>Veterinários</title>
+</head>
 <div class="testee">
     <div class="body">
         <div class="cabecalho">

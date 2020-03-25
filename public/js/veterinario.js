@@ -111,12 +111,15 @@ $(document).ready(function () {
                 },
                 success: function (response) {
                     $("table").load(" table > *");
+                    teste = true;
                     limparDados();
+                    teste = false;
                 }
             });
-            validNome = false;
-            validSobrenome = false;
-            validCpf = false;
+            validNomeVeterinario = false;
+            validSobrenomeVeterinario = false;
+            validCPFVeterinario = false;
+            validEmail = false;
         } else {
             $(".form-validation").css("display", "block");
         }

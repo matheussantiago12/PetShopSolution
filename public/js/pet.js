@@ -124,7 +124,7 @@ $(document).ready(function () {
         } else {
             $(".form-validation-pet").css("display", "block");
         }   
-        $(".otherInfos").load(" .otherInfos > *");
+        $(".testee").load(" .testee > *");
     });
 
     $("body").on("click", ".delete", function () {

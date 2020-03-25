@@ -10,7 +10,7 @@
         <script src="public/js/cliente.js"></script>
         <script src="public/js/consulta.js"></script>
         <script src="public/js/pet.js"></script>
-        <title>teste</title>
+        <title>Informação do cliente</title>
     </head>
     <body>
         <div class="testee">

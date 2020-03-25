@@ -4,7 +4,7 @@ function limparDados() {
     var inputs = document.getElementsByTagName("input");
     if (teste) {
         for (var i = 1; i < inputs.length; i++) {
-            if (inputs[i].type == "text" || inputs[i].type == "datetime-local" || inputs[i].type == "date") {
+            if (inputs[i].type == "text" || inputs[i].type == "datetime-local" || inputs[i].type == "date" || inputs[i].type == "email") {
                 inputs[i].value = "";
             }
         }

@@ -1,6 +1,9 @@
 <?php include("header.php")?>
 <?php include("consultaController.php")?>
-<script src="public/js/consulta.js"></script>
+<head>
+    <script src="public/js/consulta.js"></script>
+    <title>Consultas</title>
+</head>
 <div class="testee">
     <div class="body">
         <div class="cabecalho">

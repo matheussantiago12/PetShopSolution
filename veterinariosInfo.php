@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="public/js/veterinario.js"></script>
-    <title>teste</title>
+    <title>Informações do veterinário</title>
 </head>
 <body>
     <div class="testee">
